@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#0b1220">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Grail">
+<title>The Holy Grail</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<style>
+  :root{
+    --bg:#0b1220; --panel:#131c2e; --panel2:#0f172a; --line:#22304a;
+    --ink:#e7eef9; --dim:#8fa3bf; --sky:#38bdf8; --emerald:#10b981; --em:#34d399;
+    --amber:#fbbf24; --red:#ef4444;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+  html,body{margin:0; padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg); color:var(--ink); padding:12px 12px 60px; max-width:460px; margin:0 auto;
+  }
+  header{display:flex; justify-content:space-between; align-items:center; padding:6px 2px 12px}
+  .brand{font-weight:900; font-size:1.05rem; letter-spacing:.3px}
+  .topbtns{display:flex; gap:6px; align-items:center}
+  .datechip{font-size:.7rem; color:var(--dim); text-transform:uppercase; letter-spacing:1px; margin-right:4px}
+  .iconbtn{background:var(--panel); border:1px solid var(--line); color:var(--dim); border-radius:10px; padding:7px 9px; font-size:.9rem; cursor:pointer}
+  .iconbtn:active{border-color:var(--sky); color:var(--sky)}
+  .iconbtn.spin{display:inline-block; animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .banner{display:none; background:#271e08; border:1px solid #7c6412; color:#fde68a;
+    border-radius:12px; padding:10px 12px; font-size:.78rem; margin-bottom:10px; line-height:1.5}
+  .banner.show{display:block}
+
+  /* day chips */
+  .days{display:flex; gap:6px; overflow-x:auto; padding:2px 0 10px; scrollbar-width:none}
+  .days::-webkit-scrollbar{display:none}
+  .day{border:1px solid var(--line); background:var(--panel); color:var(--dim); border-radius:999px;
+    padding:6px 11px; font-size:.72rem; font-weight:800; white-space:nowrap; cursor:pointer; flex-shrink:0}
+  .day.on{background:var(--sky); border-color:var(--sky); color:#06202f}
+  .day .dot{display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--emerald); margin-left:5px; opacity:.9}
+
+  /* summary */
+  .stats{display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:8px; margin-bottom:12px}
+  .stat{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:8px 6px; text-align:center}
+  .stat .label{font-size:.58rem; color:var(--dim); text-transform:uppercase; letter-spacing:1px}
+  .stat .v{font-weight:900; font-size:1.05rem; margin-top:2px}
+  .stat .v.win{color:var(--em)} .stat .v.place{color:#86efac} .stat .v.lose{color:#ef4444} .stat .v.und{color:var(--dim)}
+
+  section h3{font-size:.66rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--dim); margin:14px 2px 8px}
+
+  /* race card */
+  .racecard{background:var(--panel); border:1px solid var(--line); border-radius:18px;
+    padding:12px; margin-bottom:12px; box-shadow:0 8px 22px rgba(0,0,0,.35)}
+  .rc-head{display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:2px}
+  .rc-head .t{font-weight:900; font-size:1.05rem; color:var(--sky)}
+  .rc-head .meta{font-size:.62rem; color:var(--dim); text-align:right; line-height:1.4}
+  .rc-name{font-size:.72rem; color:var(--dim); margin-bottom:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+
+  table.runner{width:100%; border-collapse:collapse; font-size:.78rem}
+  table.runner td{padding:5px 4px; border-top:1px solid var(--line); vertical-align:middle}
+  table.runner tr:first-child td{border-top:none}
+  td.rk{width:24px; text-align:center; font-weight:900; color:var(--dim); font-size:.7rem}
+  tr.top3 td.rk{color:var(--amber)}
+  td.hr{min-width:0}
+  td.hr .hn{font-weight:800; font-size:.88rem; line-height:1.1; display:block;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:145px}
+  td.hr .st{color:var(--amber); font-size:.6rem; letter-spacing:1px}
+  td.hr .jt{display:block; font-size:.62rem; color:var(--dim); margin-top:1px}
+  td.hr .od{color:var(--sky); font-weight:800; font-size:.7rem}
+  td.bt{width:34px; text-align:center; padding:2px 0 1px}
+  td.bt .bl{font-size:.5rem; color:var(--dim); letter-spacing:.4px; line-height:1}
+  td.bt .bv{font-weight:800; color:var(--sky); font-size:.78rem; line-height:1.15}
+  td.bt .bv.gold{color:var(--amber)}
+  td.tot{width:34px; text-align:right; font-weight:900; color:var(--em); font-size:.95rem}
+  td.chw{border-bottom:1px solid var(--line); text-align:right; padding-bottom:6px}
+  .res{display:inline-block; font-size:.58rem; font-weight:900; border-radius:7px; padding:3px 6px; margin-left:4px}
+  .res.WIN{background:#0b2e21; color:var(--em)} .res.PLACE{background:#123227; color:#86efac}
+  .res.LOSE{background:#331111; color:#fca5a5} .res.NR{background:#1c2a44; color:var(--dim)}
+  .res.PEND{background:#2d2410; color:#fcd34d}
+  tr.top3 td{background:rgba(251,191,36,.05)}
+  tr.top3 td.hr .hn{color:#fcd34d}
+  tr.nr-run td{opacity:.5}
+
+  .rc-count{font-size:.62rem; color:var(--dim); margin-top:8px; text-align:right}
+
+  footer.hint{font-size:.66rem; color:var(--dim); text-align:center; margin:14px 0; line-height:1.6}
+  .err{background:#271e08; border:1px solid #7c6412; color:#fde68a; border-radius:12px; padding:12px; font-size:.8rem; margin:10px 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">🏆 The Holy <span style="color:var(--emerald)">Grail</span></div>
+  <div class="topbtns">
+    <span class="datechip" id="datechip">—</span>
+    <button class="iconbtn" id="refresh" title="Fetch latest">⟳</button>
+  </div>
+</header>
+
+<div class="banner" id="installBanner">
+  📱 <b>Add to Home Screen</b> to install:<br>
+  iPhone — Share&nbsp;⬆️ → “Add to Home Screen”<br>
+  Android Chrome — ⋮ menu → “Add to Home screen”
+</div>
+
+<div class="days" id="days"></div>
+
+<div class="stats" id="stats">
+  <div class="stat"><div class="label">Wins</div><div class="v win" id="stW">–</div></div>
+  <div class="stat"><div class="label">Places</div><div class="v place" id="stP">–</div></div>
+  <div class="stat"><div class="label">Losers</div><div class="v lose" id="stL">–</div></div>
+  <div class="stat"><div class="label">Pending</div><div class="v und" id="stU">–</div></div>
+</div>
+
+<div id="app"><div class="err">Loading…</div></div>
+
+<footer class="hint">
+  Top three per race = the bets (bet365 position payout).<br>
+  Points are raw — 24% is 24 points. Empty box = no data, never zero.
+  <span id="updated" style="display:block"></span>
+</footer>
+
+<script>
+"use strict";
+const BOXES = ["life","trn","jky","fav","cd","dist","crs","trnc","cjkc"];
+const BOX_LABELS = {life:"Life", trn:"Trn", jky:"Jky", fav:"Fav", cd:"C+D", dist:"Dst",
+                    crs:"Crs", trnc:"T·C%", cjkc:"J·C%"};
+
+const $ = (id) => document.getElementById(id);
+
+function fmt(v){ return v === null || v === undefined ? "" :
+  (Number.isInteger(v) ? String(v) : (Math.round(v*10)/10).toString()); }
+
+async function jget(path){
+  const res = await fetch(path + "?ts=" + Date.now(), {cache:"no-store"});
+  if(!res.ok) throw new Error(path + " → HTTP " + res.status);
+  return res.json();
+}
+
+/* ---------------------------------------------------------------- state */
+let DAYS = [];          // available day strings, newest first
+let DAY = null;         // current day
+let DATA = null;        // current day payload
+
+function renderDays(){
+  const box = $("days");
+  box.innerHTML = "";
+  for(const d of DAYS){
+    const el = document.createElement("button");
+    el.className = "day" + (d === DAY ? " on" : "");
+    el.textContent = d.slice(5).replace("-", "/");
+    if(d === DATA?.date && daySettled(DATA)) el.insertAdjacentHTML("beforeend", '<span class="dot"></span>');
+    el.onclick = () => { DAY = d; loadDay(d, false); };
+    box.appendChild(el);
+  }
+}
+
+function daySettled(data){
+  return (data.races || []).some(r => (r.runners || []).some(x => x.res));
+}
+
+/* ---------------------------------------------------------------- render */
+function render(){
+  $("datechip").textContent = DATA.date;
+  document.title = "Grail · " + DATA.date;
+  renderDays();
+
+  const races = DATA.races || [];
+  let w = 0, p = 0, l = 0, u = 0;
+  for(const rc of races){
+    for(const r of (rc.runners || []).slice(0, 3)){
+      if(r.res === "WIN") w++;
+      else if(r.res === "PLACE") p++;
+      else if(r.res === "LOSE") l++;
+      else u++;
+    }
+  }
+  $("stW").textContent = w; $("stP").textContent = p;
+  $("stL").textContent = l; $("stU").textContent = u;
+
+  const app = $("app");
+  app.innerHTML = "";
+
+  if(!races.length){
+    app.innerHTML = '<div class="err">No 8+ runner races qualified yet — rerun the morning script once cards firm up.</div>';
+  }
+
+  for(const rc of races){
+    app.appendChild(raceCard(rc));
+  }
+
+  if(DATA.updated){
+    const t = new Date(DATA.updated);
+    $("updated").textContent = "updated " + t.toLocaleString([], {
+      weekday:"short", hour:"2-digit", minute:"2-digit"});
+  }
+}
+
+function raceCard(rc){
+  const div = document.createElement("div");
+  div.className = "racecard";
+
+  let rows = "";
+  for(const r of runners){
+    const cls = ["runner"];
+    if(r.rank <= 3) cls.push("top3");
+    if(r.res === "NR") cls.push("nr-run");
+    const stars = "★".repeat(Math.max(0, r.stars || 0));
+    const jboth = [r.jockey, r.trainer].filter(Boolean).join(" · ");
+    const res = r.res ? `<span class="res ${r.res}">${r.res === "NR" ? "NR" :
+        (r.res === "WIN" ? "WON " + (r.pos || 1) : r.res === "PLACE" ? "st " + (r.pos || "") : r.res)}</span>`
+      : (rc.settled ? "" : '<span class="res PEND">—</span>');
+    const boxes = BOXES.map(b => {
+      const v = fmt(r[b]);
+      const hot = b === "fav" && r[b] !== null && r[b] >= 33;
+      return `<td class="bt"><div class="bl">${BOX_LABELS[b]}</div><div class="bv${hot ? " gold" : ""}">${v || "·"}</div></td>`;
+    }).join("");
+    rows += `<tr class="${cls.join(" ")}">
+      <td class="rk">${r.rank}</td>
+      <td class="hr"><span class="hn">${esc(r.horse)}</span>
+        <span class="st">${stars}</span>
+        <span class="jt">${esc(jboth)}</span></td>
+      ${boxes}
+      <td class="tot">${fmt(r.total) || "·"}</td>
+      <td class="chw"><span class="od">${esc(r.odds || "")}</span>${res}</td>
+    </tr>`;
+  }
+
+  div.innerHTML =
+    `<div class="rc-head">
+      <div class="t">${esc(rc.time)} ${esc(rc.meeting)}</div>
+      <div class="meta">${rc.runners.length} runners${rc.class ? " · Cl " + esc(rc.class) : ""}<br>${esc(rc.distance || "")}</div>
+    </div>
+    <div class="rc-name">${esc(rc.name || "")}${rc.going ? " · " + esc(rc.going) : ""}</div>
+    <table class="runner">${rows}</table>
+    <div class="rc-count">sorted highest → lowest score</div>`;
+  return div;
+}
+
+function esc(s){
+  return String(s ?? "").replace(/[&<>"']/g, c =>
+    ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+/* ---------------------------------------------------------------- loader */
+async function loadDay(d, reset){
+  $("app").innerHTML = '<div class="err">Loading ' + esc(d) + '…</div>';
+  try{
+    DATA = await jget("data/" + d + ".json");
+    DAY = d;
+    if(reset) highlightDay();
+    render();
+  }catch(err){
+    $("app").innerHTML = '<div class="err">Couldn’t load ' + esc(d) + ': ' + esc(err.message) + '</div>';
+  }
+  location.hash = d;
+}
+
+function highlightDay(){ renderDays(); }
+
+async function init(){
+  if(window.matchMedia && !(window.matchMedia("(display-mode: standalone)").matches)
+     && !navigator.standalone){
+    $("installBanner").classList.add("show");
+  }
+  const hash = (location.hash || "").replace("#", "");
+  try{
+    const idx = await jget("data/index.json");
+    DAYS = idx.days || [];
+    DAY = (hash && DAYS.includes(hash)) ? hash : (idx.latest || DAYS[0]);
+    if(idx.updated) $("updated").textContent = "index saved " + idx.updated;
+  }catch(err){
+    DAYS = hash ? [hash] : [];
+    DAY = hash;
+  }
+  if(!DAY && !DAYS.length){
+    $("app").innerHTML = '<div class="err">No day data in repo yet — run the laptop script with --publish.</div>';
+    return;
+  }
+  await loadDay(DAY, true);
+}
+
+$("refresh").onclick = async (e) => {
+  const btn = e.currentTarget;
+  btn.classList.add("spin");
+  try{ await loadDay(DAY, false); }
+  finally{ btn.classList.remove("spin"); }
+};
+
+init();
+</script>
+<script>
+/* register the app-shell service worker (same pattern as Jacob's Ladder) */
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register("./sw.js").catch(() => {});
+}
+</script>
+</body>
+</html>
