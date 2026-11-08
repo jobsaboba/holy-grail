@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
 <meta name="theme-color" content="#0b1220">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Grail">
@@ -97,6 +98,7 @@
   <div class="brand">🏆 The Holy <span style="color:var(--emerald)">Grail</span></div>
   <div class="topbtns">
     <span class="datechip" id="datechip">—</span>
+    <button class="iconbtn" id="installBtn" style="display:none" title="Install app">⬇️ Install</button>
     <button class="iconbtn" id="refresh" title="Fetch latest">⟳</button>
   </div>
 </header>
@@ -145,6 +147,7 @@ async function jget(path){
 let DAYS = [];          // available day strings, newest first
 let DAY = null;         // current day
 let DATA = null;        // current day payload
+let deferredInstall = null;
 
 function renderDays(){
   const box = $("days");
@@ -154,7 +157,7 @@ function renderDays(){
     el.className = "day" + (d === DAY ? " on" : "");
     el.textContent = d.slice(5).replace("-", "/");
     if(d === DATA?.date && daySettled(DATA)) el.insertAdjacentHTML("beforeend", '<span class="dot"></span>');
-    el.onclick = () => { DAY = d; loadDay(d, false); };
+    el.onclick = () => { DAY = d; loadDay(d); };
     box.appendChild(el);
   }
 }
@@ -247,15 +250,32 @@ function esc(s){
 }
 
 /* ---------------------------------------------------------------- loader */
-async function loadDay(d, reset){
+async function fetchDay(){
+  // primary: the chosen day's file; fallback: the newest snapshot there is
+  try{
+    return await jget("data/" + DAY + ".json");
+  }catch(err){
+    const latest = await jget("data/latest.json");
+    return latest;   // caller checks which date it actually holds
+  }
+}
+
+async function loadDay(d){
   $("app").innerHTML = '<div class="err">Loading ' + esc(d) + '…</div>';
   try{
-    DATA = await jget("data/" + d + ".json");
-    DAY = d;
-    if(reset) highlightDay();
+    const j = await fetchDay();
+    DATA = j;
+    if(j.date !== d){
+      // day file missing — fall back to newest snapshot
+      DAY = j.date;
+      if(!DAYS.includes(DAY)) DAYS.unshift(DAY);
+      renderDays();
+    }
     render();
   }catch(err){
-    $("app").innerHTML = '<div class="err">Couldn’t load ' + esc(d) + ': ' + esc(err.message) + '</div>';
+    $("app").innerHTML =
+      '<div class="err">Couldn’t load the day’s data (' + esc(err.message) +
+      ').<br>Check the connection and tap <b>⟳</b> — the laptop pushes after every scoring run.</div>';
   }
   location.hash = d;
 }
@@ -272,24 +292,49 @@ async function init(){
     const idx = await jget("data/index.json");
     DAYS = idx.days || [];
     DAY = (hash && DAYS.includes(hash)) ? hash : (idx.latest || DAYS[0]);
-    if(idx.updated) $("updated").textContent = "index saved " + idx.updated;
   }catch(err){
-    DAYS = hash ? [hash] : [];
-    DAY = hash;
+    // index.json itself missing — try latest.json as the seed
+    try{
+      const latest = await jget("data/latest.json");
+      DAY = latest.date;
+      DAYS = [DAY];
+    }catch(err2){
+      $("app").innerHTML =
+        '<div class="err">No day data in the repo yet (' + esc(err2.message) +
+        ').<br>Run the laptop script with <b>--publish</b>, then tap ⟳.</div>';
+      return;
+    }
   }
-  if(!DAY && !DAYS.length){
-    $("app").innerHTML = '<div class="err">No day data in repo yet — run the laptop script with --publish.</div>';
-    return;
+  if(DAY) await loadDay(DAY);
+}
+
+/* install plumbing: one-tap when the browser offers it (Android Chrome),
+   step-by-step banner elsewhere (iPhone Safari) */
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredInstall = e;
+  $("installBtn").style.display = "inline-block";
+});
+window.addEventListener("appinstalled", () => {
+  $("installBtn").style.display = "none";
+  $("installBanner").classList.remove("show");
+});
+function doInstall(){
+  if(deferredInstall){
+    deferredInstall.prompt();
+    deferredInstall.userChoice.then(() => { deferredInstall = null;
+      $("installBtn").style.display = "none"; });
   }
-  await loadDay(DAY, true);
 }
 
 $("refresh").onclick = async (e) => {
   const btn = e.currentTarget;
   btn.classList.add("spin");
-  try{ await loadDay(DAY, false); }
+  try{ await loadDay(DAY); }
   finally{ btn.classList.remove("spin"); }
 };
+
+$("installBtn").onclick = doInstall;
 
 init();
 </script>
