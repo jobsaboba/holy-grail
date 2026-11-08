@@ -193,7 +193,13 @@ function render(){
   }
 
   for(const rc of races){
-    app.appendChild(raceCard(rc));
+    try{
+      app.appendChild(raceCard(rc));
+    }catch(err){
+      app.insertAdjacentHTML("beforeend",
+        '<div class="err">Race render skipped (' + esc(err.message) + '): ' +
+        esc(rc.time) + " " + esc(rc.meeting) + '</div>');
+    }
   }
 
   if(DATA.updated){
@@ -206,6 +212,7 @@ function render(){
 function raceCard(rc){
   const div = document.createElement("div");
   div.className = "racecard";
+  const runners = rc.runners || [];
 
   let rows = "";
   for(const r of runners){
