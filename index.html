@@ -176,7 +176,7 @@ function render(){
       if(r.res === "WIN") w++;
       else if(r.res === "PLACE") p++;
       else if(r.res === "LOSE") l++;
-      else u++;
+      else if(!r.res) u++;
     }
   }
   $("stW").textContent = w; $("stP").textContent = p;
