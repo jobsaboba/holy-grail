@@ -62,7 +62,7 @@
   .rc-head .meta{font-size:.62rem; color:var(--dim); text-align:right; line-height:1.4}
   .rc-name{font-size:.72rem; color:var(--dim); margin-bottom:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 
-  table.runner{width:100%; min-width:545px; border-collapse:collapse; font-size:.78rem}
+  table.runner{width:100%; min-width:655px; border-collapse:collapse; font-size:.78rem}
   table.runner td{padding:5px 4px; border-top:1px solid var(--line); vertical-align:middle}
   table.runner tr:first-child td{border-top:none}
   td.rk{width:24px; text-align:center; font-weight:900; color:var(--dim); font-size:.7rem}
@@ -106,7 +106,7 @@
   <div class="topbtns">
     <span class="datechip" id="datechip">—</span>
     <button class="iconbtn" id="installBtn" style="display:none" title="Install app">⬇️ Install</button>
-    <button class="iconbtn" id="refresh" title="Fetch latest">⟳</button>
+    <button class="iconbtn" id="refresh" title="Hard refresh">⟳</button>
   </div>
 </header>
 
@@ -135,8 +135,8 @@
 
 <script>
 "use strict";
-const BOXES = ["life","trn","jky","fav","cd","dist","crs","trnc","cjkc"];
-const BOX_LABELS = {life:"Life", trn:"Trn", jky:"Jky", fav:"Fav", cd:"C+D", dist:"Dst",
+const BOXES = ["life","trn","jky","ht","hj","tjc","fav","cd","dist","crs","trnc","cjkc"];
+const BOX_LABELS = {life:"Life", trn:"Trn", jky:"Jky", ht:"HT%", hj:"HJ%", tjc:"T·J%", fav:"Fav", cd:"C+D", dist:"Dst",
                     crs:"Crs", trnc:"T·C%", cjkc:"J·C%"};
 
 const $ = (id) => document.getElementById(id);
@@ -344,8 +344,14 @@ function doInstall(){
 $("refresh").onclick = async (e) => {
   const btn = e.currentTarget;
   btn.classList.add("spin");
+  // hard refresh: drop every cache the service worker holds, repaint
+  // the day fresh, then reload the shell itself
+  if("caches" in window){
+    try{ await Promise.all((await caches.keys()).map(k => caches.delete(k))); }catch(err){}
+  }
   try{ await loadDay(DAY); }
   finally{ btn.classList.remove("spin"); }
+  location.reload();
 };
 
 $("installBtn").onclick = doInstall;
