@@ -62,7 +62,7 @@
   .rc-head .meta{font-size:.62rem; color:var(--dim); text-align:right; line-height:1.4}
   .rc-name{font-size:.72rem; color:var(--dim); margin-bottom:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 
-  table.runner{width:100%; border-collapse:collapse; font-size:.78rem}
+  table.runner{width:100%; min-width:545px; border-collapse:collapse; font-size:.78rem}
   table.runner td{padding:5px 4px; border-top:1px solid var(--line); vertical-align:middle}
   table.runner tr:first-child td{border-top:none}
   td.rk{width:24px; text-align:center; font-weight:900; color:var(--dim); font-size:.7rem}
@@ -77,8 +77,12 @@
   td.bt .bl{font-size:.5rem; color:var(--dim); letter-spacing:.4px; line-height:1}
   td.bt .bv{font-weight:800; color:var(--sky); font-size:.78rem; line-height:1.15}
   td.bt .bv.gold{color:var(--amber)}
-  td.tot{width:34px; text-align:right; font-weight:900; color:var(--em); font-size:.95rem}
-  td.chw{border-bottom:1px solid var(--line); text-align:right; padding-bottom:6px}
+  td.tot{width:34px; position:sticky; right:60px; text-align:right; font-weight:900; color:var(--em); font-size:.95rem;
+    background:var(--panel); border-left:1px solid var(--line); z-index:1}
+  tr.top3 td.tot{background:#1f242e}
+  td.chw{position:sticky; right:0; border-bottom:1px solid var(--line); text-align:right; padding-bottom:6px;
+    min-width:60px; background:var(--panel); border-left:1px solid var(--line); box-shadow:-8px 0 10px -8px rgba(0,0,0,.55); z-index:1}
+  tr.top3 td.chw{background:#1f242e}
   .res{display:inline-block; font-size:.58rem; font-weight:900; border-radius:7px; padding:3px 6px; margin-left:4px}
   .res.WIN{background:#0b2e21; color:var(--em)} .res.PLACE{background:#123227; color:#86efac}
   .res.LOSE{background:#331111; color:#fca5a5} .res.NR{background:#1c2a44; color:var(--dim)}
@@ -86,6 +90,9 @@
   tr.top3 td{background:rgba(251,191,36,.05)}
   tr.top3 td.hr .hn{color:#fcd34d}
   tr.nr-run td{opacity:.5}
+
+  /* pinned results: only the table scrolls, the total + result badge stay */
+  .tblwrap{overflow-x:auto; -webkit-overflow-scrolling:touch}
 
   .rc-count{font-size:.62rem; color:var(--dim); margin-top:8px; text-align:right}
 
@@ -246,8 +253,8 @@ function raceCard(rc){
       <div class="meta">${rc.runners.length} runners${rc.class ? " · Cl " + esc(rc.class) : ""}<br>${esc(rc.distance || "")}</div>
     </div>
     <div class="rc-name">${esc(rc.name || "")}${rc.going ? " · " + esc(rc.going) : ""}</div>
-    <table class="runner">${rows}</table>
-    <div class="rc-count">sorted highest → lowest score</div>`;
+    <div class="tblwrap"><table class="runner">${rows}</table></div>
+    <div class="rc-count">sorted highest → lowest score · swipe the scores, results stay put</div>`;
   return div;
 }
 
