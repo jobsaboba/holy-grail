@@ -1,6 +1,6 @@
 {
   "date": "2026-11-06",
-  "updated": "2026-11-08T06:42:56+0000",
+  "updated": "2026-11-09T02:46:17+0000",
   "races": [
     {
       "time": "12:50",
@@ -19,7 +19,7 @@
           "jockey": "G Sheehan",
           "trainer": "Jamie Snowden",
           "life": 50,
-          "trn": 36.8,
+          "trn": 34.8,
           "jky": 29.09,
           "fav": 33,
           "cd": null,
@@ -27,7 +27,7 @@
           "crs": null,
           "trnc": null,
           "cjkc": null,
-          "total": 148.89,
+          "total": 146.89,
           "pos": 1,
           "res": "WIN"
         },
@@ -230,7 +230,7 @@
           "jockey": "Isabelle Ryder",
           "trainer": "Jamie Snowden",
           "life": 17,
-          "trn": 36.8,
+          "trn": 34.8,
           "jky": 11.76,
           "fav": null,
           "cd": null,
@@ -238,7 +238,7 @@
           "crs": null,
           "trnc": null,
           "cjkc": null,
-          "total": 70.56,
+          "total": 68.56,
           "pos": 7,
           "res": "LOSE"
         },
@@ -1325,7 +1325,7 @@
           "jockey": "J J Burke",
           "trainer": "James Owen",
           "life": 6,
-          "trn": 31.5,
+          "trn": 29.3,
           "jky": 17.19,
           "fav": 33,
           "cd": null,
@@ -1333,7 +1333,7 @@
           "crs": 3,
           "trnc": null,
           "cjkc": null,
-          "total": 90.69,
+          "total": 88.49,
           "pos": 3,
           "res": "PLACE"
         },
@@ -2691,7 +2691,7 @@
           "jockey": "Hollie Doyle",
           "trainer": "James Owen",
           "life": 20,
-          "trn": 31.5,
+          "trn": 29.3,
           "jky": 14.29,
           "fav": 33,
           "cd": null,
@@ -2699,7 +2699,7 @@
           "crs": null,
           "trnc": null,
           "cjkc": null,
-          "total": 103.78999999999999,
+          "total": 101.59,
           "pos": 1,
           "res": "WIN"
         },
