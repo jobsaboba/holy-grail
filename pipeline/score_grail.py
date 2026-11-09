@@ -322,8 +322,21 @@ def fetch_hrn_jockeys(names: list[str], dstr: str, refresh: bool) -> dict[str, f
     """HRN per-jockey Strike Rate (Last 30 Days) widget, keyed by SL name."""
     if not names:
         return {}
-    index = fetch(f"{HRN}/jockeys", f"gr-hrn-index-{dstr}.html", refresh,
-                  ua=HRN_UA)
+    try:
+        index = fetch(f"{HRN}/jockeys", f"gr-hrn-index-{dstr}.html", refresh,
+                      ua=HRN_UA)
+    except Exception as exc:  # noqa: BLE001
+        # HRN blocks datacenter IPs (GitHub Actions runners) — fall back to
+        # the resolved 30-day seed the desktop publishes into the repo
+        seed = _seed_path(f"hrn-jky30-{dstr}.json")
+        if seed.exists():
+            data = json.loads(seed.read_text(encoding="utf-8"))
+            print(f"  HRN jockeys blocked ({exc}) — using repo snapshot "
+                  f"({len(data)} jockeys)", file=sys.stderr)
+            return {k: float(v) for k, v in data.items()}
+        print(f"  HRN jockey index unavailable ({exc}) — "
+              f"Jky%30 boxes empty today", file=sys.stderr)
+        return {}
     slugs = sorted(set(re.findall(r'href="/jockeys/([a-z0-9-]+)"', index)))
 
     def slug_guess(name: str) -> str:
@@ -355,6 +368,17 @@ def fetch_hrn_jockeys(names: list[str], dstr: str, refresh: bool) -> dict[str, f
                 sr[name] = float(vals[5])   # win %
             except ValueError:
                 pass
+    if sr:   # keep the day's resolved seed topped up (merge: never shrinks
+        # when one desktop run's transient fetch fails mid-list)
+        seed = _seed_path(f"hrn-jky30-{dstr}.json")
+        merged: dict = {}
+        if seed.exists():
+            try:
+                merged = json.loads(seed.read_text(encoding="utf-8"))
+            except ValueError:
+                merged = {}
+        merged.update(sr)
+        _write_seed(f"hrn-jky30-{dstr}.json", merged)
     return sr
 
 
@@ -409,17 +433,33 @@ def fetch_hrn_stats(dstr: str, refresh: bool) -> dict:
       hj      : name → (wins, runs, sr)          hot jockeys
       cj / ct : {course: {name: (wins, runs, sr)}}
       combos  : {course: {(trainer, jockey): sr}}
-    Only names with 3+ wins are listed by HRN — a miss = empty box."""
-    page = fetch(f"{HRN}/stats", f"gr-hrn-stats-{dstr}.html", refresh,
-                 ua=HRN_UA)
-    out = _parse_hrn_stats_tables(page)
-    if not out["cj"] and not out["ct"] and not refresh:
-        # HRN builds these tables on race-day mornings — an empty cached
-        # copy from an earlier run gets one uncached retry
-        page = fetch(f"{HRN}/stats", f"gr-hrn-stats-{dstr}.html", True,
+    Only names with 3+ wins are listed by HRN — a miss = empty box.
+    Datacenter IPs (GitHub Actions) get 403 from HRN's CDN — those runs
+    fall back to the snapshot your desktop publishes into the repo."""
+    try:
+        page = fetch(f"{HRN}/stats", f"gr-hrn-stats-{dstr}.html", refresh,
                      ua=HRN_UA)
         out = _parse_hrn_stats_tables(page)
-    return out
+        if not out["cj"] and not out["ct"] and not refresh:
+            # HRN builds these tables on race-day mornings — an empty
+            # cached copy from an earlier run gets one uncached retry
+            page = fetch(f"{HRN}/stats", f"gr-hrn-stats-{dstr}.html", True,
+                         ua=HRN_UA)
+            out = _parse_hrn_stats_tables(page)
+        return out
+    except Exception as exc:  # noqa: BLE001
+        seed = APP_DIR / "data" / f"hrn-stats-{dstr}.html"
+        if seed.exists():
+            print(f"  HRN blocked ({exc}) — using repo snapshot {seed.name}")
+            return _parse_hrn_stats_tables(read_text(seed))
+        print(f"  HRN unavailable ({exc}) — HRN boxes empty today",
+              file=sys.stderr)
+        return {"ht": {}, "hj": {},
+                "cj": {}, "ct": {}, "combos": {}}
+
+
+def read_text(path: Path) -> str:
+    return path.read_text(encoding="utf-8", errors="ignore")
 
 
 def _hrn_section(page: str, heading: str) -> str:
@@ -813,6 +853,34 @@ def run_git(*args: str) -> str:
     return (p.stdout + p.stderr).strip()
 
 
+def _seed_path(name: str) -> Path:
+    return APP_DIR / "data" / name
+
+
+def _write_seed(name: str, payload: dict) -> None:
+    p = _seed_path(name)
+    txt = json.dumps(payload, sort_keys=True, ensure_ascii=False) + "\n"
+    if not p.exists() or p.read_text(encoding="utf-8") != txt:
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(txt, encoding="utf-8")
+
+
+def seed_hrn_snapshot(data_dir: Path, dstr: str) -> None:
+    """Publish the day's HRN /stats page into the repo — runner-hosted
+    settles fall back to it when HRN's CDN 403-blocks datacenter IPs.
+    (The resolved 30-day jockey seed is written by fetch_hrn_jockeys.)"""
+    src = BASE_DIR / "cache" / f"gr-hrn-stats-{dstr}.html"
+    if src.exists():
+        dst = data_dir / f"hrn-stats-{dstr}.html"
+        if not (dst.exists() and dst.stat().st_size == src.stat().st_size):
+            dst.write_text(src.read_text(encoding="utf-8", errors="ignore"),
+                           encoding="utf-8")
+    for pat in ("hrn-stats-????-??-??.html", "hrn-jky30-????-??-??.json"):
+        snaps = sorted(data_dir.glob(pat))
+        for old in snaps[:-8]:
+            old.unlink()
+
+
 def publish_app(dstr: str, cards: list[dict], push: bool = True) -> None:
     """Write data/<date>.json + latest.json + index.json into the PWA repo,
     then commit (and push). Re-running with unchanged scoring is a no-op."""
@@ -844,7 +912,9 @@ def publish_app(dstr: str, cards: list[dict], push: bool = True) -> None:
     n_r = len(src.get("races") or [])
     print(f"App data: {latest_path.name} — {latest}, {n_r} races")
 
-    if not changed:
+    seed_hrn_snapshot(data_dir, dstr)
+
+    if not changed and run_git("status", "--porcelain", "--", "data") == "":
         print("No scoring change since last publish.")
         return
 
