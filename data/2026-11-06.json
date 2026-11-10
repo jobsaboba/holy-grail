@@ -1,6 +1,6 @@
 {
   "date": "2026-11-06",
-  "updated": "2026-11-10T06:46:28+0000",
+  "updated": "2026-11-10T07:08:02+0000",
   "races": [
     {
       "time": "12:50",
@@ -35,7 +35,7 @@
           "res": "WIN",
           "stake": 0.1,
           "bet_profit": 0.03,
-          "bank_after": 10.03
+          "bank_after": 10.06
         },
         {
           "rank": 2,
@@ -61,7 +61,7 @@
           "res": "LOSE",
           "stake": 0.1,
           "bet_profit": -0.1,
-          "bank_after": 9.93
+          "bank_after": 10.06
         },
         {
           "rank": 3,
@@ -285,7 +285,7 @@
           "res": "LOSE",
           "stake": 0.1,
           "bet_profit": -0.1,
-          "bank_after": 9.96
+          "bank_after": 9.95
         },
         {
           "rank": 2,
@@ -311,7 +311,7 @@
           "res": "PLACE",
           "stake": 0.1,
           "bet_profit": -0.02,
-          "bank_after": 9.94
+          "bank_after": 9.95
         },
         {
           "rank": 3,
@@ -707,7 +707,7 @@
           "res": "PLACE",
           "stake": 0.1,
           "bet_profit": 0.01,
-          "bank_after": 9.96
+          "bank_after": 10.22
         },
         {
           "rank": 2,
@@ -733,7 +733,7 @@
           "res": "WIN",
           "stake": 0.1,
           "bet_profit": 0.36,
-          "bank_after": 10.32
+          "bank_after": 10.22
         },
         {
           "rank": 3,
@@ -1049,7 +1049,7 @@
           "res": "WIN",
           "stake": 0.1,
           "bet_profit": 0.15,
-          "bank_after": 10.37
+          "bank_after": 10.32
         },
         {
           "rank": 2,
@@ -1075,7 +1075,7 @@
           "res": "PLACE",
           "stake": 0.1,
           "bet_profit": -0.03,
-          "bank_after": 10.34
+          "bank_after": 10.32
         },
         {
           "rank": 3,
@@ -1563,7 +1563,7 @@
           "res": "PLACE",
           "stake": 0.1,
           "bet_profit": -0.04,
-          "bank_after": 10.28
+          "bank_after": 10.08
         },
         {
           "rank": 2,
@@ -1589,7 +1589,7 @@
           "res": "LOSE",
           "stake": 0.1,
           "bet_profit": -0.1,
-          "bank_after": 10.18
+          "bank_after": 10.08
         },
         {
           "rank": 3,
@@ -1813,7 +1813,7 @@
           "res": "LOSE",
           "stake": 0.1,
           "bet_profit": -0.1,
-          "bank_after": 9.98
+          "bank_after": 9.78
         },
         {
           "rank": 2,
@@ -1839,7 +1839,7 @@
           "res": "LOSE",
           "stake": 0.1,
           "bet_profit": -0.1,
-          "bank_after": 9.88
+          "bank_after": 9.78
         },
         {
           "rank": 3,
@@ -2063,7 +2063,7 @@
           "res": "PLACE",
           "stake": 0.1,
           "bet_profit": -0.02,
-          "bank_after": 9.76
+          "bank_after": 11.34
         },
         {
           "rank": 2,
@@ -2089,7 +2089,7 @@
           "res": "LOSE",
           "stake": 0.1,
           "bet_profit": -0.1,
-          "bank_after": 9.66
+          "bank_after": 11.34
         },
         {
           "rank": 3,
@@ -2336,7 +2336,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 11.23
+          "bank_after": 11.13
         },
         {
           "rank": 2,
@@ -2362,7 +2362,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 11.12
+          "bank_after": 11.13
         },
         {
           "rank": 3,
@@ -2586,7 +2586,7 @@
           "res": "PLACE",
           "stake": 0.11,
           "bet_profit": -0.03,
-          "bank_after": 11.1
+          "bank_after": 11.31
         },
         {
           "rank": 2,
@@ -2612,7 +2612,7 @@
           "res": "WIN",
           "stake": 0.11,
           "bet_profit": 0.23,
-          "bank_after": 11.33
+          "bank_after": 11.31
         },
         {
           "rank": 3,
@@ -2836,7 +2836,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 11.2
+          "bank_after": 11.62
         },
         {
           "rank": 2,
@@ -2862,7 +2862,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 11.09
+          "bank_after": 11.62
         },
         {
           "rank": 3,
@@ -3178,7 +3178,7 @@
           "res": "WIN",
           "stake": 0.12,
           "bet_profit": 0.16,
-          "bank_after": 11.78
+          "bank_after": 11.54
         },
         {
           "rank": 2,
@@ -3204,7 +3204,7 @@
           "res": "LOSE",
           "stake": 0.12,
           "bet_profit": -0.12,
-          "bank_after": 11.66
+          "bank_after": 11.54
         },
         {
           "rank": 3,
@@ -3474,7 +3474,7 @@
           "res": "WIN",
           "stake": 0.12,
           "bet_profit": 0.18,
-          "bank_after": 11.72
+          "bank_after": 11.62
         },
         {
           "rank": 2,
@@ -3500,7 +3500,7 @@
           "res": "PLACE",
           "stake": 0.12,
           "bet_profit": 0.02,
-          "bank_after": 11.74
+          "bank_after": 11.62
         },
         {
           "rank": 3,
@@ -3816,7 +3816,7 @@
           "res": "LOSE",
           "stake": 0.12,
           "bet_profit": -0.12,
-          "bank_after": 11.5
+          "bank_after": 11.26
         },
         {
           "rank": 2,
@@ -3842,7 +3842,7 @@
           "res": "LOSE",
           "stake": 0.12,
           "bet_profit": -0.12,
-          "bank_after": 11.38
+          "bank_after": 11.26
         },
         {
           "rank": 3,
@@ -4066,7 +4066,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 11.15
+          "bank_after": 11.1
         },
         {
           "rank": 2,
@@ -4092,7 +4092,7 @@
           "res": "PLACE",
           "stake": 0.11,
           "bet_profit": 0.06,
-          "bank_after": 11.21
+          "bank_after": 11.1
         },
         {
           "rank": 3,
@@ -4408,7 +4408,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.99
+          "bank_after": 11.08
         },
         {
           "rank": 2,
@@ -4434,7 +4434,7 @@
           "res": "WIN",
           "stake": 0.11,
           "bet_profit": 0.2,
-          "bank_after": 11.19
+          "bank_after": 11.08
         },
         {
           "rank": 3,
@@ -4750,7 +4750,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.97
+          "bank_after": 10.75
         },
         {
           "rank": 2,
@@ -4776,7 +4776,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.86
+          "bank_after": 10.75
         },
         {
           "rank": 3,
@@ -5092,7 +5092,7 @@
           "res": "WIN",
           "stake": 0.11,
           "bet_profit": 0.79,
-          "bank_after": 11.54
+          "bank_after": 11.32
         },
         {
           "rank": 2,
@@ -5118,7 +5118,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 11.43
+          "bank_after": 11.32
         },
         {
           "rank": 3,
@@ -5342,7 +5342,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 11.21
+          "bank_after": 11.66
         },
         {
           "rank": 2,
@@ -5368,7 +5368,7 @@
           "res": "PLACE",
           "stake": 0.11,
           "bet_profit": -0.01,
-          "bank_after": 11.2
+          "bank_after": 11.66
         },
         {
           "rank": 3,
@@ -5546,7 +5546,7 @@
           "res": "LOSE",
           "stake": 0.12,
           "bet_profit": -0.12,
-          "bank_after": 11.54
+          "bank_after": 11.67
         },
         {
           "rank": 2,
@@ -5572,7 +5572,7 @@
           "res": "WIN",
           "stake": 0.12,
           "bet_profit": 0.25,
-          "bank_after": 11.79
+          "bank_after": 11.67
         },
         {
           "rank": 3,
