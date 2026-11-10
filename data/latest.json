@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "updated": "2026-11-10T07:04:31+0000",
+  "updated": "2026-11-10T07:13:22+0000",
   "races": [
     {
       "time": "12:30",
@@ -398,7 +398,7 @@
           "jockey": "Brian Hayes",
           "trainer": "W P Mullins",
           "life": null,
-          "trn": 27.3,
+          "trn": 29.2,
           "jky": 15.79,
           "fav": 33,
           "ht": 29.0,
@@ -409,7 +409,7 @@
           "crs": null,
           "trnc": 24.0,
           "cjkc": null,
-          "total": 129.09,
+          "total": 130.99,
           "pos": 0,
           "res": null
         },
@@ -949,7 +949,7 @@
           "jockey": "Paul Townend",
           "trainer": "W P Mullins",
           "life": 25,
-          "trn": 27.3,
+          "trn": 29.2,
           "jky": 47.06,
           "fav": 8,
           "ht": 29.0,
@@ -960,7 +960,7 @@
           "crs": null,
           "trnc": 24.0,
           "cjkc": 37.0,
-          "total": 258.36,
+          "total": 260.26,
           "pos": 0,
           "res": null
         },
@@ -995,7 +995,7 @@
           "jockey": "Mark Walsh",
           "trainer": "W P Mullins",
           "life": 14,
-          "trn": 27.3,
+          "trn": 29.2,
           "jky": 13.04,
           "fav": null,
           "ht": 29.0,
@@ -1006,7 +1006,7 @@
           "crs": null,
           "trnc": 24.0,
           "cjkc": 24.0,
-          "total": 131.34,
+          "total": 133.24,
           "pos": 0,
           "res": null
         },
@@ -1018,7 +1018,7 @@
           "jockey": "J J Slevin",
           "trainer": "W P Mullins",
           "life": 38,
-          "trn": 27.3,
+          "trn": 29.2,
           "jky": 9.68,
           "fav": null,
           "ht": 29.0,
@@ -1029,7 +1029,7 @@
           "crs": null,
           "trnc": 24.0,
           "cjkc": null,
-          "total": 127.97999999999999,
+          "total": 129.88,
           "pos": 0,
           "res": null
         },
@@ -2028,7 +2028,7 @@
           "jockey": "Paul O'Brien",
           "trainer": "Harry Derham",
           "life": 25,
-          "trn": 18.2,
+          "trn": 21.7,
           "jky": 17.5,
           "fav": 33,
           "ht": null,
@@ -2039,7 +2039,7 @@
           "crs": null,
           "trnc": 37.0,
           "cjkc": 26.0,
-          "total": 224.7,
+          "total": 228.2,
           "pos": 0,
           "res": null
         },
