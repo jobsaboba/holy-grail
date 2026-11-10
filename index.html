@@ -51,6 +51,10 @@
   .stat .label{font-size:.58rem; color:var(--dim); text-transform:uppercase; letter-spacing:1px}
   .stat .v{font-weight:900; font-size:1.05rem; margin-top:2px}
   .stat .v.win{color:var(--em)} .stat .v.place{color:#86efac} .stat .v.lose{color:#ef4444} .stat .v.und{color:var(--dim)}
+  .stat .v.bank{color:#fbbf24}
+  .bk{display:inline-block; font-size:.58rem; font-weight:900; border-radius:7px;
+      padding:3px 6px; margin-left:4px; font-variant-numeric:tabular-nums;
+      background:rgba(251,191,36,.15); color:#fbbf24}
 
   section h3{font-size:.66rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--dim); margin:14px 2px 8px}
 
@@ -123,12 +127,13 @@
   <div class="stat"><div class="label">Places</div><div class="v place" id="stP">–</div></div>
   <div class="stat"><div class="label">Losers</div><div class="v lose" id="stL">–</div></div>
   <div class="stat"><div class="label">Pending</div><div class="v und" id="stU">–</div></div>
+  <div class="stat"><div class="label">Bank</div><div class="v bank" id="stBk">–</div></div>
 </div>
 
 <div id="app"><div class="err">Loading…</div></div>
 
 <footer class="hint">
-  Top three per race = the bets (bet365 position payout).<br>
+  Top three per race = the bets — £10 bank, 1% on each pick, each-way (Ladbrokes): ½ on the win · ½ on the place at 1/5 odds.<br>
   Points are raw — 24% is 24 points. Empty box = no data, never zero.
   <span id="updated" style="display:block"></span>
 </footer>
@@ -192,6 +197,13 @@ function render(){
   $("stW").textContent = w; $("stP").textContent = p;
   $("stL").textContent = l; $("stU").textContent = u;
 
+  const bk = DATA.bank;
+  if(bk && $("stBk")){
+    $("stBk").textContent = "£" + Number(bk.end).toFixed(2);
+    $("stBk").title = "bank £" + Number(bk.start).toFixed(2) +
+      " → £" + Number(bk.end).toFixed(2) + " (settled races only)";
+  }
+
   const app = $("app");
   app.innerHTML = "";
 
@@ -231,6 +243,9 @@ function raceCard(rc){
     const res = r.res ? `<span class="res ${r.res}">${r.res === "NR" ? "NR" :
         (r.res === "WIN" ? "WON " + (r.pos || 1) : r.res === "PLACE" ? "st " + (r.pos || "") : r.res)}</span>`
       : (rc.settled ? "" : '<span class="res PEND">—</span>');
+    const bk = r.bet_profit !== null && r.bet_profit !== undefined
+      ? `<span class="bk">${r.bet_profit >= 0 ? "+" : "−"}£${Math.abs(r.bet_profit).toFixed(2)}</span>`
+      : "";
     const boxes = BOXES.map(b => {
       const v = fmt(r[b]);
       const hot = b === "fav" && r[b] !== null && r[b] >= 33;
@@ -243,7 +258,7 @@ function raceCard(rc){
         <span class="jt">${esc(jboth)}</span></td>
       ${boxes}
       <td class="tot">${fmt(r.total) || "·"}</td>
-      <td class="chw"><span class="od">${esc(r.odds || "")}</span>${res}</td>
+      <td class="chw"><span class="od">${esc(r.odds || "")}</span>${res}${bk}</td>
     </tr>`;
   }
 

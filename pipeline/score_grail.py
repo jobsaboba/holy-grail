@@ -4,7 +4,7 @@ score_grail.py — THE HOLY GRAIL 🏆
 
 Points pointer: every runner in an 8+-runner race is scored across nine
 criteria; the race sheet is shown highest-to-lowest and the top three are
-the day's bets (bet365 position payout, markets to be pinned down).
+the day's bets — each-way: half win, half place at 1/5 odds).
 
 Scoring boxes (raw % goes in as points, missing data = empty box, never 0):
 
@@ -69,7 +69,7 @@ RM = "https://www.racemetrics.co.uk"
 HRN = "https://www.horseracing.net"
 
 MIN_RUNNERS = 8
-COURSE_COUNTRIES = {"ENG", "IRE", "SCO", "WAL"}   # UK & Ireland only
+COURSE_COUNTRIES = {"ENG", "IRE", "EIRE", "WAL", "WLS", "SCO", "SCT"}
 FAV_POINTS = {1: 33, 2: 17, 3: 11, 4: 8, 5: 6}   # first five favs only
 CD_PTS, DIST_PTS, CRS_PTS = 10, 5, 3
 TOP3 = 3
@@ -187,7 +187,8 @@ def scrape_races_index(dstr: str, refresh: bool) -> list[dict]:
                     continue
                 if rc.get("ride_count") and int(rc["ride_count"]) < MIN_RUNNERS:
                     continue   # cheap pre-filter; the card itself is the authority
-                if (rc.get("country_short_name") or mco) not in COURSE_COUNTRIES:
+                if (((rc.get("country_short_name") or mco) or "").upper()
+                        not in COURSE_COUNTRIES):
                     continue   # strict: UK/IRE only, no default fallback
                 ref = rc.get("race_summary_reference") or {}
                 out.append({
@@ -626,6 +627,97 @@ BOXES = [("life_pts", "Life%"), ("trn_pts", "Trn%14"), ("jky_pts", "Jky%30"),
          ("crs_pts", "Crse"), ("trnc_pts", "TrnC%"), ("cjkc_pts", "JkyC%")]
 BOX_COLS = ["Win", "Place", "Loss", "Return", "Bank"]
 
+# ----------------------------- bank: £10 start, 1% on each of the top three
+GRAIL_START_BANK = 10.00
+GRAIL_STAKE_PCT = 0.01
+GRAIL_EW_PLACE_FRACTION = 0.2     # place part pays ⅕ the odds (365 each-way)
+_BANK: dict[str, tuple] = {}        # key day|time|meeting|horse → (stake,profit,bank_after)
+_BANK_DAYS: dict[str, tuple] = {}   # day → (bank_in, bank_out)
+
+
+def bet_return(odds_txt: str | None, res: str | None, stake: float,
+               pos: int | None = None) -> float | None:
+    """Profit on the TOTAL stake `stake` for the Grail's each-way top-three
+    bets: 1% split ½ win + ½ place, the place half paying ⅕ the odds on
+    the race's own place count (extra-place races pay deeper for free).
+    WIN = winning half at the full price + placing half at ⅕; PLACE = the
+    placing half pays at ⅕ (winning half lost); LOSE = the lot. Unsettled
+    → None (the bank doesn't move until results are in)."""
+    if not res or res == "NR":
+        return None
+    dec = frac_to_dec(odds_txt) if odds_txt else None
+    if res == "LOSE" or dec is None:     # settled with no price → the lot
+        return round(-stake, 2)
+    win_half = place_half = stake / 2
+    win_profit = win_half * (dec - 1)
+    place_profit = place_half * (dec - 1) * GRAIL_EW_PLACE_FRACTION
+    if res == "WIN":
+        return round(win_profit + place_profit, 2)
+    if res == "PLACE":
+        return round(-win_half + place_profit, 2)
+    return None
+
+
+def _bank_walk(j: dict, bank: float) -> float:
+    """Walk one day payload's settled races in time order, staking 1% of
+    the race-start bank on each of the top three (each-way at 1/5 odds).
+    Stakes don't exist until the race is off and settled."""
+    day = j["date"]
+    st = _BANK_DAYS.setdefault(day, [bank, bank])
+    st[0] = bank
+    for rc in sorted(j.get("races") or [], key=lambda c: c["time"]):
+        cands = rc.get("runners") or rc.get("scored") or []
+        rows = [r for i, r in enumerate(cands)
+                if (r.get("rank") or i + 1) <= TOP3][:TOP3]
+        if len(rows) < 3:
+            continue                             # short/payload-day — no bets
+        if any(r.get("res") not in ("WIN", "PLACE", "LOSE") for r in rows):
+            continue                             # a bet still pending — no money
+        stake = round(bank * GRAIL_STAKE_PCT, 2)
+        stake = max(stake, 0.01)           # Ladbrokes takes 1p stakes, so the
+        bets, net = [], 0.0                # 1% rule survives small banks
+        for r in rows:
+            prof = bet_return(r.get("odds"), r.get("res"), stake, r.get("pos"))
+            if prof is None:
+                prof = round(-stake, 2)
+            bets.append((r, prof))
+            net = round(net + prof, 2)
+        bank = round(bank + net, 2)        # bank moves once per race, so all
+        for r, prof in bets:               # three rows show the race-END bank
+            _BANK[f"{day}|{rc['time']}|{rc['meeting']}|{r['horse']}"] = (
+                stake, round(prof, 2), bank)
+        st[1] = bank
+    return bank
+
+
+def grail_bank_replay(data_dir: Path, current_day: str,
+                      cards: list[dict]) -> float:
+    """Rebuild the whole £10-start ledger in strict day order across every
+    stored day file. The day being published walks its FRESH cards (its
+    stored file is stale mid-publish); every other day — INCLUDING days
+    after it, so a backdated republish still chains the full history —
+    walks its stored payload. Returns the end bank."""
+    _BANK.clear()
+    _BANK_DAYS.clear()
+    bank = GRAIL_START_BANK
+    days = sorted(set(p.stem for p in data_dir.glob("????-??-??.json"))
+                  | {current_day})
+    for d in days:
+        if d == current_day:
+            j = {"date": current_day, "races": cards}
+        else:
+            try:
+                j = json.loads((data_dir / f"{d}.json").read_text(
+                    encoding="utf-8"))
+            except Exception:
+                continue
+        bank = _bank_walk(j, bank)
+    return bank
+
+
+def bank_key(day: str, time: str, meeting: str, horse: str) -> str:
+    return f"{day}|{time}|{meeting}|{horse}"
+
 
 def box(v):
     return "" if v is None else (str(int(v)) if float(v).is_integer()
@@ -651,6 +743,16 @@ def write_html(dstr: str, racedays: list[dict]) -> Path:
                        f'<td class="res r{r["res"]}">{mark}</td>')
             else:
                 res = '<td class="pos">—</td><td class="res">—</td>'
+            money = ""
+            if tops and r.get("stake") is not None:
+                prof = r.get("bet_profit")
+                sign = "+" if prof >= 0 else ""
+                money = (f'<td class="stake">£{r["stake"]:.2f}</td>'
+                         f'<td class="res p{1 if prof >= 0 else 0}">'
+                         f'{sign}£{prof:.2f}</td>'
+                         f'<td class="stake">£{r["bank_after"]:.2f}</td>')
+            else:
+                money = '<td class="stake"></td><td></td><td></td>'
             rows += (
                 f'<tr class="{"top3" if tops else ""}{" nr" if r["res"]=="NR" else ""}">'
                 f'<td class="rk">{rank}</td>'
@@ -659,7 +761,7 @@ def write_html(dstr: str, racedays: list[dict]) -> Path:
                 f'<td class="tj">{r["jockey"] or ""}</td>'
                 f'<td class="tj">{r["trainer"]}</td>'
                 f'<td class="odds">{r["odds"] or ""}</td>'
-                f'{boxes}{res}'
+                f'{boxes}{res}{money}'
                 f'<td class="tot">{box(r["total"])}</td></tr>'
             )
         cards.append(
@@ -670,7 +772,7 @@ def write_html(dstr: str, racedays: list[dict]) -> Path:
             f'<table><thead><tr><th>#</th><th>Horse</th><th>Jockey</th>'
             f'<th>Trainer</th><th>Odds</th>'
             + "".join(f"<th>{lbl}</th>" for _, lbl in BOXES)
-            + "<th>Pos</th><th>Res</th><th>Σ</th></tr></thead>"
+            + "<th>Pos</th><th>Res</th><th>Stk</th><th>£</th><th>Bank</th><th>Σ</th></tr></thead>"
             f"<tbody>{rows}</tbody></table></div>"
         )
 
@@ -696,13 +798,21 @@ def write_html(dstr: str, racedays: list[dict]) -> Path:
         "tr.top3 td{background:rgba(251,191,36,.07)}tr.top3 td.rk{color:#fbbf24}"
         "td.pos,td.res{color:#8fa3bf}td.res.rWIN{color:#34d399;font-weight:700}"
         "td.res.rPLACE{color:#86efac}td.res.rLOSE{color:#ef4444}"
+        "td.stake{color:#fbbf24;font-variant-numeric:tabular-nums;text-align:right}"
+        "td.res.p1{color:#34d399!important}td.res.p0{color:#ef4444!important}"
         "tr.nr{opacity:.45}.foot{color:#8fa3bf;font-size:.7rem;margin-top:18px;line-height:1.6}"
         "</style></head><body>"
         f"<h1>🏆 The Holy Grail</h1>"
         f"<div class='sub'>{dstr} · 8+ runner races only · sorted by score · "
-        f"top {TOP3} = the bets (bet365 position payout)</div>"
-        + "".join(cards)
-        + "<div class='foot'>Points go in raw: any % = that many points. "
+        f"top {TOP3} = the bets (each-way: ½ win · ½ place at 1/5 odds)</div>"
+        + "".join(cards))
+    bs, be = _BANK_DAYS.get(dstr, (GRAIL_START_BANK, GRAIL_START_BANK))
+    if be != GRAIL_START_BANK:
+        html += (f"<div class='foot'><b style='color:#fbbf24'>💰 BANK "
+                 f"£{bs:.2f} → £{be:.2f}</b> — £10 start · 1% of the bank "
+                 "on each of the top three per race · each-way 1/5 odds · "
+                 "races still to run stake nothing.</div>")
+    html += ("<div class='foot'>Points go in raw: any % = that many points. "
         "Empty box = no data (never counted as 0).<br>"
         "Fav ladder: 1st 33 · 2nd 17 · 3rd 11 · 4th 8 · 5th 6 (from the "
         "Sporting Life betting forecast). C+D win 10 · distance win 5 · "
@@ -726,21 +836,30 @@ def write_xlsx(dstr: str, racedays: list[dict]) -> list[Path]:
     header = (["Date", "Meeting", "Time", "Runners", "Top3", "Horse", "Stars",
                "Odds", "Jockey", "Trainer"]
               + [lbl for _, lbl in BOXES] + ["Total"]
-              + ["Pos", "Result", "Comment"])
+              + ["Pos", "Result", "Stake £", "Return £", "Bank £", "Comment"])
     rows = []
     for rc in racedays:
         for rank, r in enumerate(rc["scored"], start=1):
+            if rank <= TOP3 and r.get("stake") is not None:
+                prof = r.get("bet_profit")
+                sign = "+" if prof >= 0 else ""
+                money = [f"{r['stake']:.2f}", f"{sign}{prof:.2f}",
+                         f"{r['bank_after']:.2f}"]
+            else:
+                money = ["", "", ""]
             rows.append(
                 [rc["date"], rc["meeting"], rc["time"], len(rc["scored"]),
                  "Y" if rank <= TOP3 else "", r["horse"], r["stars"],
                  r["odds"], r["jockey"], r["trainer"]]
                 + [box(r[k]) for k, _ in BOXES]
                 + [box(r["total"]), r["pos"] if r["pos"] else "",
-                   r["res"] or "", r["comment"][:120]]
+                   r["res"] or ""]
+                + money
+                + [r["comment"][:120]]
             )
     day = DESKTOP_DIR / f"The Holy Grail {dstr}.xlsx"
     write_xlsx(day, header, rows,
-               widths=[11, 12, 7, 9, 6, 22, 6, 7, 16, 20, 8, 8, 8, 6, 6, 6, 6, 8, 8, 8, 8, 8, 8, 6, 8, 60],
+               widths=[11, 12, 7, 9, 6, 22, 6, 7, 16, 20, 8, 8, 8, 6, 6, 6, 6, 8, 8, 8, 8, 8, 8, 6, 8, 60, 8, 9, 9],
                sheet="scorecards")
 
     rolling_store = CACHE_DIR / "grail_all.csv"
@@ -749,20 +868,40 @@ def write_xlsx(dstr: str, racedays: list[dict]) -> list[Path]:
     if rolling_store.exists():
         with open(rolling_store, newline="", encoding="utf-8") as fh:
             for rec in csv.reader(fh):
-                if rec and rec[0]:
-                    all_rows[(rec[0], rec[2], rec[5])] = rec
+                if rec and re.fullmatch(r"\d{4}-\d{2}-\d{2}", rec[0] or ""):
+                    all_rows[(rec[0], rec[2], rec[5])] = (rec
+                                                          + [""] * (29 - len(rec)))[:29]
     for r in rows:
         all_rows[(r[0], r[2], r[5])] = [str(c) for c in r]
+    allfile = DESKTOP_DIR / "The Holy Grail — all days.xlsx"
+    merged = [all_rows[k] for k in sorted(all_rows)]
+    # ── money columns stamped straight off the payload bank walk — the
+    # same £10 chain the app + day files use — so the book can never
+    # disagree with them. (Recomputing money over merged rows failed: the
+    # archive carries old-schema rows with picks from previous scoring
+    # eras. The walk's own ledger is the single source of truth.)
+    gd_bank = grail_bank_replay(APP_DIR / "data", dstr, racedays)
+    covered = set(_BANK_DAYS) | {dstr}
+    for r in merged:
+        if r[0] in covered:
+            r[25] = r[26] = r[27] = ""
+            hit = _BANK.get(bank_key(r[0], r[2], r[1], r[5]))
+            if hit:
+                prof = hit[1]
+                r[25] = f"{hit[0]:.2f}"
+                r[26] = f"+{prof:.2f}" if prof >= 0 else f"{prof:.2f}"
+                r[27] = f"{hit[2]:.2f}"
     with open(rolling_store, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(header)
         for k in sorted(all_rows):
             w.writerow(all_rows[k])
-    allfile = DESKTOP_DIR / "The Holy Grail — all days.xlsx"
-    merged = [all_rows[k] for k in sorted(all_rows)]
     write_xlsx(allfile, [h if not h[0].isdigit() else h for h in header], merged,
-               widths=[11, 12, 7, 9, 6, 22, 6, 7, 16, 20, 8, 8, 8, 6, 6, 6, 6, 8, 8, 8, 8, 8, 8, 6, 8, 60],
+               widths=[11, 12, 7, 9, 6, 22, 6, 7, 16, 20, 8, 8, 8, 6, 6, 6, 6, 8, 8, 8, 8, 8, 8, 6, 8, 60, 8, 9, 9],
                sheet="all")
+    if gd_bank != GRAIL_START_BANK:
+        print(f"💰 ALL-DAYS LEDGER: £{GRAIL_START_BANK:.2f} → £{gd_bank:.2f} "
+              f"(every top-three bet settled so far, Ladbrokes each-way 1/5 odds)")
     return [day, allfile]
 
 
@@ -889,6 +1028,16 @@ def publish_app(dstr: str, cards: list[dict], push: bool = True) -> None:
 
     payload = app_day_payload(dstr, cards)
 
+    grail_bank_replay(data_dir, dstr, cards)
+    for rc0 in payload["races"]:
+        for rr in rc0["runners"]:
+            hit = _BANK.get(bank_key(dstr, rc0["time"], rc0["meeting"],
+                                     rr["horse"]))
+            if hit:
+                rr["stake"], rr["bet_profit"], rr["bank_after"] = hit
+    bs, be = _BANK_DAYS.get(dstr, (GRAIL_START_BANK, GRAIL_START_BANK))
+    payload["bank"] = {"start": bs, "end": be}
+
     def sans_stamp(text: str) -> str:
         try:
             j = json.loads(text)
@@ -899,9 +1048,27 @@ def publish_app(dstr: str, cards: list[dict], push: bool = True) -> None:
 
     day_path = data_dir / f"{dstr}.json"
     new_text = json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
-    changed = not day_path.exists() or sans_stamp(day_path.read_text(
-        encoding="utf-8")) != sans_stamp(new_text)
-    day_path.write_text(new_text, encoding="utf-8")
+    existing: dict | None = None
+    if day_path.exists():
+        try:
+            existing = json.loads(day_path.read_text(encoding="utf-8"))
+        except Exception:
+            existing = None
+    shrunk = (existing is not None
+              and len(existing.get("races") or [])
+              > len(payload.get("races") or []))
+    if shrunk:
+        # thin index/fallback day (SL serves partial data at times) must
+        # never replace a richer stored day
+        print(f"  ⚠️ {dstr}: fetched only {len(payload.get('races') or [])} "
+              f"races but {len(existing.get('races') or [])} are stored — "
+              f"keeping the richer day file")
+        new_text = day_path.read_text(encoding="utf-8")
+    changed = (not shrunk and
+               (not day_path.exists() or sans_stamp(day_path.read_text(
+                   encoding="utf-8")) != sans_stamp(new_text)))
+    if not shrunk:
+        day_path.write_text(new_text, encoding="utf-8")
 
     days = sorted(p.stem for p in data_dir.glob("????-??-??.json"))
     latest = days[-1]
@@ -966,6 +1133,15 @@ def main(argv: list[str] | None = None) -> int:
 
     cards = build(dstr, args.refresh)
 
+    grail_bank_replay(APP_DIR / "data", dstr, cards)
+    for c in cards:
+        c["bank_start"], c["bank_end"] = _BANK_DAYS.get(
+            dstr, (GRAIL_START_BANK, GRAIL_START_BANK))
+        for rr in c["scored"]:
+            hit = _BANK.get(bank_key(dstr, c["time"], c["meeting"], rr["horse"]))
+            if hit:
+                rr["stake"], rr["bet_profit"], rr["bank_after"] = hit
+
     print(f"\n=== 🏆 THE HOLY GRAIL — {dstr} ===")
     for c in cards:
         settled = sum(1 for r in c["scored"] if r["res"])
@@ -976,8 +1152,18 @@ def main(argv: list[str] | None = None) -> int:
             marks = " ".join(
                 f"{lbl}:{box(r[k])}" for k, lbl in BOXES if r.get(k) is not None
             ) or "no data"
+            hit = _BANK.get(bank_key(dstr, c["time"], c["meeting"], r["horse"]))
+            extra = ""
+            if hit:
+                sign = "+" if hit[1] >= 0 else ""
+                extra = f" [{hit[0]:.2f} → {sign}{hit[1]:.2f}]"
             print(f"   {i}. {r['horse']:20} {r['odds'] or '':6} "
-                  f"Σ {box(r['total']):>6}  ({marks})")
+                  f"Σ {box(r['total']):>6}  ({marks}){extra}")
+
+    bs, be = _BANK_DAYS.get(dstr, (GRAIL_START_BANK, GRAIL_START_BANK))
+    if be != bs:
+        print(f"   💰 BANK £{bs:.2f} → £{be:.2f} "
+          f"(£10 start · 1% on each top three · Ladbrokes each-way 1/5 odds)")
 
     draft = DRAFT_DIR / dstr
     draft.mkdir(parents=True, exist_ok=True)
