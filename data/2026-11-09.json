@@ -1,6 +1,6 @@
 {
   "date": "2026-11-09",
-  "updated": "2026-11-10T06:49:37+0000",
+  "updated": "2026-11-10T07:11:16+0000",
   "races": [
     {
       "time": "12:00",
@@ -35,7 +35,7 @@
           "res": "WIN",
           "stake": 0.11,
           "bet_profit": 0.3,
-          "bank_after": 11.62
+          "bank_after": 11.4
         },
         {
           "rank": 2,
@@ -61,7 +61,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 11.51
+          "bank_after": 11.4
         },
         {
           "rank": 3,
@@ -331,7 +331,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 11.29
+          "bank_after": 11.14
         },
         {
           "rank": 2,
@@ -357,7 +357,7 @@
           "res": "PLACE",
           "stake": 0.11,
           "bet_profit": -0.04,
-          "bank_after": 11.25
+          "bank_after": 11.14
         },
         {
           "rank": 3,
@@ -657,7 +657,7 @@
           "jockey": "Brian Hayes",
           "trainer": "W P Mullins",
           "life": 100,
-          "trn": 27.3,
+          "trn": 29.2,
           "jky": 15.79,
           "fav": 33,
           "ht": 29.0,
@@ -668,7 +668,7 @@
           "crs": null,
           "trnc": null,
           "cjkc": null,
-          "total": 205.09,
+          "total": 206.98999999999998,
           "pos": 1,
           "res": "WIN"
         },
@@ -680,7 +680,7 @@
           "jockey": "Sean O'Keeffe",
           "trainer": "W P Mullins",
           "life": null,
-          "trn": 27.3,
+          "trn": 29.2,
           "jky": null,
           "fav": 11,
           "ht": 29.0,
@@ -691,7 +691,7 @@
           "crs": null,
           "trnc": null,
           "cjkc": null,
-          "total": 67.3,
+          "total": 69.2,
           "pos": 6,
           "res": "LOSE"
         },
@@ -891,7 +891,7 @@
           "res": "WIN",
           "stake": 0.11,
           "bet_profit": 0.04,
-          "bank_after": 11.18
+          "bank_after": 10.96
         },
         {
           "rank": 2,
@@ -917,7 +917,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 11.07
+          "bank_after": 10.96
         },
         {
           "rank": 3,
@@ -1187,7 +1187,7 @@
           "res": "PLACE",
           "stake": 0.11,
           "bet_profit": -0.01,
-          "bank_after": 10.95
+          "bank_after": 10.88
         },
         {
           "rank": 2,
@@ -1213,7 +1213,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.84
+          "bank_after": 10.88
         },
         {
           "rank": 3,
@@ -1437,7 +1437,7 @@
           "res": "WIN",
           "stake": 0.11,
           "bet_profit": 0.09,
-          "bank_after": 10.97
+          "bank_after": 10.93
         },
         {
           "rank": 2,
@@ -1463,7 +1463,7 @@
           "res": "PLACE",
           "stake": 0.11,
           "bet_profit": -0.03,
-          "bank_after": 10.94
+          "bank_after": 10.93
         },
         {
           "rank": 3,
@@ -2456,7 +2456,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.82
+          "bank_after": 10.6
         },
         {
           "rank": 2,
@@ -2482,7 +2482,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.71
+          "bank_after": 10.6
         },
         {
           "rank": 3,
@@ -2931,7 +2931,7 @@
           "jockey": "G Sheehan",
           "trainer": "Jamie Snowden",
           "life": 100,
-          "trn": 34.8,
+          "trn": 36.0,
           "jky": 32.76,
           "fav": 33,
           "ht": 36.0,
@@ -2942,12 +2942,12 @@
           "crs": null,
           "trnc": null,
           "cjkc": null,
-          "total": 271.56,
+          "total": 272.76,
           "pos": 1,
           "res": "WIN",
           "stake": 0.11,
           "bet_profit": 0.06,
-          "bank_after": 10.66
+          "bank_after": 10.65
         },
         {
           "rank": 2,
@@ -2973,7 +2973,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.55
+          "bank_after": 10.65
         },
         {
           "rank": 3,
