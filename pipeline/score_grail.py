@@ -37,13 +37,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import calendar
 import os
 import re
 import subprocess
 import sys
 import time
 import unicodedata
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -115,6 +116,36 @@ def fetch(url: str, cache_name: str, refresh: bool = False,
 
 def london_today() -> str:
     return datetime.now(ZoneInfo("Europe/London")).date().isoformat()
+
+
+def _last_sunday(y: int, m: int) -> date:
+    last = date(y, m, calendar.monthrange(y, m)[1])
+    return last - timedelta(days=(last.weekday() + 1) % 7)
+
+
+def uk_time(dstr: str, time_txt: str) -> str:
+    """SL's JSON race times are UTC; the desktop sheets show UK local.
+    BST months (last Sun Mar → last Sun Oct) display +1h — mirrors the
+    ukTime() helper in the three PWA index.html files. Stored data,
+    csv archives and bank keys stay UTC: convert only at render."""
+    m = re.match(r"(\d{1,2}):(\d{2})", (time_txt or "").strip())
+    if not m:
+        return time_txt
+    try:
+        d = date.fromisoformat(dstr)
+    except ValueError:
+        return time_txt
+    mins = int(m.group(1)) * 60 + int(m.group(2))
+    if _last_sunday(d.year, 3) <= d < _last_sunday(d.year, 10):
+        mins += 60
+    return f"{mins // 60 % 24:02d}:{mins % 60:02d}"
+
+
+def _uk_row(row: list) -> list:
+    """Sheet row with the Time cell shown UK-local (csv keys stay UTC)."""
+    out = list(row)
+    out[2] = uk_time(out[0], out[2])
+    return out
 
 
 def strip_accents(s: str) -> str:
@@ -774,7 +805,7 @@ def write_html(dstr: str, racedays: list[dict]) -> Path:
                 f'<td class="tot">{box(r["total"])}</td></tr>'
             )
         cards.append(
-            f'<div class="race"><div class="rh"><span>{rc["time"]} '
+            f'<div class="race"><div class="rh"><span>{uk_time(rc["date"], rc["time"])} '
             f'{rc["meeting"]}</span><span class="meta">{rc["race_name"]} · '
             f'Class {rc["class"]} · {rc["distance"]} · {rc["going"] or ""}'
             f' · {len(rc["scored"])} runners</span></div>'
@@ -867,7 +898,7 @@ def write_xlsx(dstr: str, racedays: list[dict]) -> list[Path]:
                 + [r["comment"][:120]]
             )
     day = DESKTOP_DIR / f"The Holy Grail {dstr}.xlsx"
-    write_xlsx(day, header, rows,
+    write_xlsx(day, header, [_uk_row(r) for r in rows],
                widths=[11, 12, 7, 9, 6, 22, 6, 7, 16, 20, 8, 8, 8, 6, 6, 6, 6, 8, 8, 8, 8, 8, 8, 6, 8, 60, 8, 9, 9],
                sheet="scorecards")
 
@@ -905,7 +936,8 @@ def write_xlsx(dstr: str, racedays: list[dict]) -> list[Path]:
         w.writerow(header)
         for k in sorted(all_rows):
             w.writerow(all_rows[k])
-    write_xlsx(allfile, [h if not h[0].isdigit() else h for h in header], merged,
+    write_xlsx(allfile, [h if not h[0].isdigit() else h for h in header],
+               [_uk_row(r) for r in merged],
                widths=[11, 12, 7, 9, 6, 22, 6, 7, 16, 20, 8, 8, 8, 6, 6, 6, 6, 8, 8, 8, 8, 8, 8, 6, 8, 60, 8, 9, 9],
                sheet="all")
     if gd_bank != GRAIL_START_BANK:

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-07",
-  "updated": "2026-11-10T07:09:21+0000",
+  "updated": "2026-11-11T15:20:52+0000",
   "races": [
     {
       "time": "11:55",
@@ -33,9 +33,9 @@
           "total": 55,
           "pos": 3,
           "res": "PLACE",
-          "stake": 0.12,
-          "bet_profit": -0.02,
-          "bank_after": 11.52
+          "stake": 0.86,
+          "bet_profit": -0.14,
+          "bank_after": 85.06
         },
         {
           "rank": 2,
@@ -59,9 +59,9 @@
           "total": 43,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.12,
-          "bet_profit": -0.01,
-          "bank_after": 11.52
+          "stake": 0.86,
+          "bet_profit": -0.04,
+          "bank_after": 85.06
         },
         {
           "rank": 3,
@@ -85,9 +85,9 @@
           "total": 38,
           "pos": 5,
           "res": "LOSE",
-          "stake": 0.12,
-          "bet_profit": -0.12,
-          "bank_after": 11.52
+          "stake": 0.86,
+          "bet_profit": -0.86,
+          "bank_after": 85.06
         },
         {
           "rank": 4,
@@ -329,9 +329,9 @@
           "total": 108.38,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.12,
-          "bet_profit": -0.05,
-          "bank_after": 11.23
+          "stake": 0.85,
+          "bet_profit": -0.36,
+          "bank_after": 83.0
         },
         {
           "rank": 2,
@@ -355,9 +355,9 @@
           "total": 71.17,
           "pos": 5,
           "res": "LOSE",
-          "stake": 0.12,
-          "bet_profit": -0.12,
-          "bank_after": 11.23
+          "stake": 0.85,
+          "bet_profit": -0.85,
+          "bank_after": 83.0
         },
         {
           "rank": 3,
@@ -381,9 +381,9 @@
           "total": 65.33,
           "pos": 4,
           "res": "LOSE",
-          "stake": 0.12,
-          "bet_profit": -0.12,
-          "bank_after": 11.23
+          "stake": 0.85,
+          "bet_profit": -0.85,
+          "bank_after": 83.0
         },
         {
           "rank": 4,
@@ -648,9 +648,9 @@
           "total": 56,
           "pos": 7,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.24
+          "stake": 0.83,
+          "bet_profit": -0.83,
+          "bank_after": 83.08
         },
         {
           "rank": 2,
@@ -674,9 +674,9 @@
           "total": 42,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.23,
-          "bank_after": 11.24
+          "stake": 0.83,
+          "bet_profit": 1.74,
+          "bank_after": 83.08
         },
         {
           "rank": 3,
@@ -700,9 +700,9 @@
           "total": 36,
           "pos": 4,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.24
+          "stake": 0.83,
+          "bet_profit": -0.83,
+          "bank_after": 83.08
         },
         {
           "rank": 4,
@@ -1155,6 +1155,279 @@
       ]
     },
     {
+      "time": "12:55",
+      "meeting": "Kelso",
+      "name": "Graeme Todd Memorial Handicap Hurdle (Div 1)",
+      "class": "5",
+      "distance": "2m 4f 189y",
+      "going": "Good (Good to Soft in places)",
+      "settled": true,
+      "runners": [
+        {
+          "rank": 1,
+          "horse": "King Horse",
+          "stars": 5,
+          "odds": "6/4",
+          "jockey": "Danny McMenamin",
+          "trainer": "N G Richards",
+          "life": 14,
+          "trn": null,
+          "jky": null,
+          "fav": 33,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 47,
+          "pos": 1,
+          "res": "WIN",
+          "stake": 0.83,
+          "bet_profit": 0.75,
+          "bank_after": 83.33
+        },
+        {
+          "rank": 2,
+          "horse": "Les's Legacy",
+          "stars": 3,
+          "odds": "9/1",
+          "jockey": "Nathan Moscrop",
+          "trainer": "S Corbett",
+          "life": 10,
+          "trn": null,
+          "jky": null,
+          "fav": 8,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": 10,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 28,
+          "pos": 3,
+          "res": "PLACE",
+          "stake": 0.83,
+          "bet_profit": 0.33,
+          "bank_after": 83.33
+        },
+        {
+          "rank": 3,
+          "horse": "Old Comrades",
+          "stars": 4,
+          "odds": "9/2",
+          "jockey": "Bruce Lynn",
+          "trainer": "N W Alexander",
+          "life": null,
+          "trn": null,
+          "jky": null,
+          "fav": 17,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 17,
+          "pos": 10,
+          "res": "LOSE",
+          "stake": 0.83,
+          "bet_profit": -0.83,
+          "bank_after": 83.33
+        },
+        {
+          "rank": 4,
+          "horse": "Dusky Days",
+          "stars": 2,
+          "odds": "12/1",
+          "jockey": "Leah Noreci",
+          "trainer": "James Moffatt",
+          "life": 10,
+          "trn": null,
+          "jky": null,
+          "fav": 6,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 16,
+          "pos": 2,
+          "res": "PLACE"
+        },
+        {
+          "rank": 5,
+          "horse": "Asa",
+          "stars": 3,
+          "odds": "33/1",
+          "jockey": "Joe Williamson",
+          "trainer": "P A Kirby",
+          "life": 14,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 14,
+          "pos": 9,
+          "res": "LOSE"
+        },
+        {
+          "rank": 6,
+          "horse": "Tigress Lilly",
+          "stars": 4,
+          "odds": "5/1",
+          "jockey": "Jack Power",
+          "trainer": "L Russell & M Scudamore",
+          "life": null,
+          "trn": null,
+          "jky": null,
+          "fav": 11,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 11,
+          "pos": 8,
+          "res": "LOSE"
+        },
+        {
+          "rank": 7,
+          "horse": "Zephlyn",
+          "stars": 3,
+          "odds": "16/1",
+          "jockey": "Craig Nichol",
+          "trainer": "Ewan Whillans",
+          "life": 10,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 10,
+          "pos": 5,
+          "res": "LOSE"
+        },
+        {
+          "rank": 8,
+          "horse": "Evenwood Sonofagun",
+          "stars": 3,
+          "odds": "16/1",
+          "jockey": "Sean Quinlan",
+          "trainer": "Lizzie Quinlan",
+          "life": 8,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 8,
+          "pos": 4,
+          "res": "LOSE"
+        },
+        {
+          "rank": 9,
+          "horse": "Poetry Man",
+          "stars": 3,
+          "odds": "12/1",
+          "jockey": "Jonathon Bewley",
+          "trainer": "G Bewley",
+          "life": 5,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 5,
+          "pos": 6,
+          "res": "LOSE"
+        },
+        {
+          "rank": 10,
+          "horse": "On The Bubble",
+          "stars": 2,
+          "odds": "33/1",
+          "jockey": "Dominic Hislop",
+          "trainer": "Gary Rutherford",
+          "life": 5,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 5,
+          "pos": 11,
+          "res": "LOSE"
+        },
+        {
+          "rank": 11,
+          "horse": "Dartmouth Star",
+          "stars": 2,
+          "odds": "50/1",
+          "jockey": "Jamie Hamilton",
+          "trainer": "M Walford",
+          "life": null,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 0,
+          "pos": 7,
+          "res": "LOSE"
+        }
+      ]
+    },
+    {
       "time": "13:15",
       "meeting": "Aintree",
       "name": "William Hill Best Odds Guaranteed Handicap Chase (GBB Race)",
@@ -1185,9 +1458,9 @@
           "total": 67,
           "pos": 7,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.36
+          "stake": 0.83,
+          "bet_profit": -0.83,
+          "bank_after": 84.28
         },
         {
           "rank": 2,
@@ -1211,9 +1484,9 @@
           "total": 60.22,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.26,
-          "bank_after": 11.36
+          "stake": 0.83,
+          "bet_profit": 1.99,
+          "bank_after": 84.28
         },
         {
           "rank": 3,
@@ -1237,9 +1510,9 @@
           "total": 48,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": -0.03,
-          "bank_after": 11.36
+          "stake": 0.83,
+          "bet_profit": -0.21,
+          "bank_after": 84.28
         },
         {
           "rank": 4,
@@ -1405,6 +1678,279 @@
       ]
     },
     {
+      "time": "13:30",
+      "meeting": "Kelso",
+      "name": "Graeme Todd Memorial Handicap Hurdle (Div 2)",
+      "class": "5",
+      "distance": "2m 4f 189y",
+      "going": "Good",
+      "settled": true,
+      "runners": [
+        {
+          "rank": 1,
+          "horse": "Billable Grant",
+          "stars": 3,
+          "odds": "9/1",
+          "jockey": "B S Hughes",
+          "trainer": "Mrs J Stephen",
+          "life": 10,
+          "trn": null,
+          "jky": 18.46,
+          "fav": 6,
+          "ht": null,
+          "hj": 20.0,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 54.46,
+          "pos": 1,
+          "res": "WIN",
+          "stake": 0.84,
+          "bet_profit": 4.54,
+          "bank_after": 87.85
+        },
+        {
+          "rank": 2,
+          "horse": "Lester Mail",
+          "stars": 5,
+          "odds": "7/2",
+          "jockey": "Bruce Lynn",
+          "trainer": "N W Alexander",
+          "life": 10,
+          "trn": null,
+          "jky": null,
+          "fav": 33,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": 3,
+          "trnc": null,
+          "cjkc": null,
+          "total": 46,
+          "pos": 2,
+          "res": "PLACE",
+          "stake": 0.84,
+          "bet_profit": -0.13,
+          "bank_after": 87.85
+        },
+        {
+          "rank": 3,
+          "horse": "Annual Invitation",
+          "stars": 4,
+          "odds": "7/1",
+          "jockey": "Kielan Woods",
+          "trainer": "Christian Williams",
+          "life": null,
+          "trn": null,
+          "jky": 18.75,
+          "fav": 8,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 26.75,
+          "pos": 4,
+          "res": "LOSE",
+          "stake": 0.84,
+          "bet_profit": -0.84,
+          "bank_after": 87.85
+        },
+        {
+          "rank": 4,
+          "horse": "Benefit Ben",
+          "stars": 3,
+          "odds": "10/1",
+          "jockey": "Jack Power",
+          "trainer": "A Nicol",
+          "life": 14,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": 10,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 24,
+          "pos": 11,
+          "res": "LOSE"
+        },
+        {
+          "rank": 5,
+          "horse": "Fairly Fulling",
+          "stars": 3,
+          "odds": "9/2",
+          "jockey": "Nathan Moscrop",
+          "trainer": "S Corbett",
+          "life": 9,
+          "trn": null,
+          "jky": null,
+          "fav": 11,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 20,
+          "pos": 3,
+          "res": "PLACE"
+        },
+        {
+          "rank": 6,
+          "horse": "Starlyte",
+          "stars": 2,
+          "odds": "14/1",
+          "jockey": "Gregor Walkingshaw",
+          "trainer": "L Russell & M Scudamore",
+          "life": 10,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": 10,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 20,
+          "pos": 9,
+          "res": "LOSE"
+        },
+        {
+          "rank": 7,
+          "horse": "Valtteri Its James",
+          "stars": 4,
+          "odds": "4/1",
+          "jockey": "D R Fox",
+          "trainer": "L Russell & M Scudamore",
+          "life": null,
+          "trn": null,
+          "jky": null,
+          "fav": 17,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 17,
+          "pos": 10,
+          "res": "LOSE"
+        },
+        {
+          "rank": 8,
+          "horse": "Lone Star",
+          "stars": 3,
+          "odds": "14/1",
+          "jockey": "Joe Williamson",
+          "trainer": "P A Kirby",
+          "life": 12,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": 5,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 17,
+          "pos": 7,
+          "res": "LOSE"
+        },
+        {
+          "rank": 9,
+          "horse": "Forest Blaze",
+          "stars": 3,
+          "odds": "14/1",
+          "jockey": "Jamie Hamilton",
+          "trainer": "M Walford",
+          "life": 11,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 11,
+          "pos": 6,
+          "res": "LOSE"
+        },
+        {
+          "rank": 10,
+          "horse": "Gonnino",
+          "stars": 3,
+          "odds": "9/1",
+          "jockey": "Callum Bewley",
+          "trainer": "Gary Rutherford",
+          "life": null,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 0,
+          "pos": 5,
+          "res": "LOSE"
+        },
+        {
+          "rank": 11,
+          "horse": "Miss Arabella",
+          "stars": 2,
+          "odds": "66/1",
+          "jockey": "Craig Nichol",
+          "trainer": "A M Thomson",
+          "life": null,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 0,
+          "pos": 8,
+          "res": "LOSE"
+        }
+      ]
+    },
+    {
       "time": "13:35",
       "meeting": "Doncaster",
       "name": "Virgin Bet Supports Safer Gambling Nursery",
@@ -1435,9 +1981,9 @@
           "total": 78,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.11,
-          "bank_after": 11.5
+          "stake": 0.88,
+          "bet_profit": 0.86,
+          "bank_after": 88.97
         },
         {
           "rank": 2,
@@ -1461,9 +2007,9 @@
           "total": 57,
           "pos": 4,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.5
+          "stake": 0.88,
+          "bet_profit": -0.88,
+          "bank_after": 88.97
         },
         {
           "rank": 3,
@@ -1487,9 +2033,9 @@
           "total": 45,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": 0.14,
-          "bank_after": 11.5
+          "stake": 0.88,
+          "bet_profit": 1.14,
+          "bank_after": 88.97
         },
         {
           "rank": 4,
@@ -1639,9 +2185,9 @@
           "total": 93.50999999999999,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.12,
-          "bet_profit": 0.14,
-          "bank_after": 11.49
+          "stake": 0.89,
+          "bet_profit": 1.07,
+          "bank_after": 88.93
         },
         {
           "rank": 2,
@@ -1665,9 +2211,9 @@
           "total": 39.53,
           "pos": 3,
           "res": "PLACE",
-          "stake": 0.12,
-          "bet_profit": -0.03,
-          "bank_after": 11.49
+          "stake": 0.89,
+          "bet_profit": -0.22,
+          "bank_after": 88.93
         },
         {
           "rank": 3,
@@ -1691,9 +2237,9 @@
           "total": 38.5,
           "pos": 8,
           "res": "LOSE",
-          "stake": 0.12,
-          "bet_profit": -0.12,
-          "bank_after": 11.49
+          "stake": 0.89,
+          "bet_profit": -0.89,
+          "bank_after": 88.93
         },
         {
           "rank": 4,
@@ -2153,9 +2699,9 @@
           "total": 45,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": -0.02,
-          "bank_after": 11.25
+          "stake": 0.89,
+          "bet_profit": -0.2,
+          "bank_after": 86.95
         },
         {
           "rank": 2,
@@ -2179,9 +2725,9 @@
           "total": 29,
           "pos": 4,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.25
+          "stake": 0.89,
+          "bet_profit": -0.89,
+          "bank_after": 86.95
         },
         {
           "rank": 3,
@@ -2205,9 +2751,9 @@
           "total": 24,
           "pos": 8,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.25
+          "stake": 0.89,
+          "bet_profit": -0.89,
+          "bank_after": 86.95
         },
         {
           "rank": 4,
@@ -2426,9 +2972,9 @@
           "total": 82.8,
           "pos": 15,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.21
+          "stake": 0.87,
+          "bet_profit": -0.87,
+          "bank_after": 86.65
         },
         {
           "rank": 2,
@@ -2452,9 +2998,9 @@
           "total": 79.8,
           "pos": 14,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.21
+          "stake": 0.87,
+          "bet_profit": -0.87,
+          "bank_after": 86.65
         },
         {
           "rank": 3,
@@ -2478,9 +3024,9 @@
           "total": 69,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.18,
-          "bank_after": 11.21
+          "stake": 0.87,
+          "bet_profit": 1.44,
+          "bank_after": 86.65
         },
         {
           "rank": 4,
@@ -2906,9 +3452,9 @@
           "total": 133,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.1,
-          "bank_after": 11.18
+          "stake": 0.87,
+          "bet_profit": 0.78,
+          "bank_after": 86.42
         },
         {
           "rank": 2,
@@ -2932,9 +3478,9 @@
           "total": 46.85,
           "pos": 8,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.18
+          "stake": 0.87,
+          "bet_profit": -0.87,
+          "bank_after": 86.42
         },
         {
           "rank": 3,
@@ -2958,9 +3504,9 @@
           "total": 17,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": -0.02,
-          "bank_after": 11.18
+          "stake": 0.87,
+          "bet_profit": -0.14,
+          "bank_after": 86.42
         },
         {
           "rank": 4,
@@ -3248,9 +3794,9 @@
           "total": 67,
           "pos": 3,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": -0.02,
-          "bank_after": 10.94
+          "stake": 0.86,
+          "bet_profit": -0.14,
+          "bank_after": 84.56
         },
         {
           "rank": 2,
@@ -3274,9 +3820,9 @@
           "total": 66,
           "pos": 4,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.94
+          "stake": 0.86,
+          "bet_profit": -0.86,
+          "bank_after": 84.56
         },
         {
           "rank": 3,
@@ -3300,9 +3846,9 @@
           "total": 47.0,
           "pos": 16,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.94
+          "stake": 0.86,
+          "bet_profit": -0.86,
+          "bank_after": 84.56
         },
         {
           "rank": 4,
@@ -3659,9 +4205,9 @@
           "total": 86.4,
           "pos": 5,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.94
+          "stake": 0.85,
+          "bet_profit": -0.85,
+          "bank_after": 84.56
         },
         {
           "rank": 2,
@@ -3685,9 +4231,9 @@
           "total": 55.64,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.22,
-          "bank_after": 10.94
+          "stake": 0.85,
+          "bet_profit": 1.7,
+          "bank_after": 84.56
         },
         {
           "rank": 3,
@@ -3711,9 +4257,9 @@
           "total": 53.5,
           "pos": 8,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.94
+          "stake": 0.85,
+          "bet_profit": -0.85,
+          "bank_after": 84.56
         },
         {
           "rank": 4,
@@ -3863,9 +4409,9 @@
           "total": 172.85,
           "pos": 6,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.8
+          "stake": 0.85,
+          "bet_profit": -0.85,
+          "bank_after": 83.45
         },
         {
           "rank": 2,
@@ -3889,9 +4435,9 @@
           "total": 79.78999999999999,
           "pos": 3,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": 0.08,
-          "bank_after": 10.8
+          "stake": 0.85,
+          "bet_profit": 0.59,
+          "bank_after": 83.45
         },
         {
           "rank": 3,
@@ -3915,9 +4461,9 @@
           "total": 51.32,
           "pos": 11,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.8
+          "stake": 0.85,
+          "bet_profit": -0.85,
+          "bank_after": 83.45
         },
         {
           "rank": 4,
@@ -4205,9 +4751,9 @@
           "total": 93.85,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.26,
-          "bank_after": 11.04
+          "stake": 0.83,
+          "bet_profit": 1.99,
+          "bank_after": 85.28
         },
         {
           "rank": 2,
@@ -4231,9 +4777,9 @@
           "total": 56.09,
           "pos": 3,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": -0.01,
-          "bank_after": 11.04
+          "stake": 0.83,
+          "bet_profit": -0.08,
+          "bank_after": 85.28
         },
         {
           "rank": 3,
@@ -4257,9 +4803,9 @@
           "total": 46.0,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": -0.01,
-          "bank_after": 11.04
+          "stake": 0.83,
+          "bet_profit": -0.08,
+          "bank_after": 85.28
         },
         {
           "rank": 4,
@@ -4432,9 +4978,9 @@
           "total": 68.8,
           "pos": 6,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.32
+          "stake": 0.85,
+          "bet_profit": -0.85,
+          "bank_after": 87.42
         },
         {
           "rank": 2,
@@ -4458,9 +5004,9 @@
           "total": 58,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": -0.04,
-          "bank_after": 11.32
+          "stake": 0.85,
+          "bet_profit": -0.32,
+          "bank_after": 87.42
         },
         {
           "rank": 3,
@@ -4484,9 +5030,9 @@
           "total": 32,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.43,
-          "bank_after": 11.32
+          "stake": 0.85,
+          "bet_profit": 3.31,
+          "bank_after": 87.42
         },
         {
           "rank": 4,
@@ -4728,9 +5274,9 @@
           "total": 105,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.2,
-          "bank_after": 11.48
+          "stake": 0.87,
+          "bet_profit": 1.57,
+          "bank_after": 88.64
         },
         {
           "rank": 2,
@@ -4754,9 +5300,9 @@
           "total": 57,
           "pos": 5,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.48
+          "stake": 0.87,
+          "bet_profit": -0.87,
+          "bank_after": 88.64
         },
         {
           "rank": 3,
@@ -4780,9 +5326,9 @@
           "total": 55,
           "pos": 4,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": 0.07,
-          "bank_after": 11.48
+          "stake": 0.87,
+          "bet_profit": 0.52,
+          "bank_after": 88.64
         },
         {
           "rank": 4,
@@ -5277,9 +5823,9 @@
           "total": 98.5,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": -0.05,
-          "bank_after": 11.21
+          "stake": 0.89,
+          "bet_profit": -0.37,
+          "bank_after": 86.49
         },
         {
           "rank": 2,
@@ -5303,9 +5849,9 @@
           "total": 48.51,
           "pos": 9,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.21
+          "stake": 0.89,
+          "bet_profit": -0.89,
+          "bank_after": 86.49
         },
         {
           "rank": 3,
@@ -5329,9 +5875,9 @@
           "total": 22.259999999999998,
           "pos": 4,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.21
+          "stake": 0.89,
+          "bet_profit": -0.89,
+          "bank_after": 86.49
         },
         {
           "rank": 4,
@@ -5883,9 +6429,9 @@
           "total": 271.56,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.06,
-          "bank_after": 11.05
+          "stake": 0.86,
+          "bet_profit": 0.47,
+          "bank_after": 85.24
         },
         {
           "rank": 2,
@@ -5909,9 +6455,9 @@
           "total": 72,
           "pos": 4,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.05
+          "stake": 0.86,
+          "bet_profit": -0.86,
+          "bank_after": 85.24
         },
         {
           "rank": 3,
@@ -5935,9 +6481,9 @@
           "total": 68.7,
           "pos": 6,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.05
+          "stake": 0.86,
+          "bet_profit": -0.86,
+          "bank_after": 85.24
         },
         {
           "rank": 4,
@@ -6195,6 +6741,279 @@
       ]
     },
     {
+      "time": "15:45",
+      "meeting": "Kelso",
+      "name": "luckytiger.co.uk Best Odds Guaranteed The Night Before Handicap Hurdle",
+      "class": "3",
+      "distance": "2m 4f 189y",
+      "going": "Good",
+      "settled": true,
+      "runners": [
+        {
+          "rank": 1,
+          "horse": "Dream's Ka",
+          "stars": 3,
+          "odds": "11/1",
+          "jockey": "B S Hughes",
+          "trainer": "K Scott",
+          "life": 25,
+          "trn": null,
+          "jky": 18.46,
+          "fav": null,
+          "ht": null,
+          "hj": 20.0,
+          "tjc": null,
+          "cd": 10,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 73.46000000000001,
+          "pos": 4,
+          "res": "LOSE",
+          "stake": 0.85,
+          "bet_profit": -0.85,
+          "bank_after": 87.24
+        },
+        {
+          "rank": 2,
+          "horse": "Moon Over America",
+          "stars": 4,
+          "odds": "5/2",
+          "jockey": "Jamie Brace",
+          "trainer": "N & W Twiston-Davies",
+          "life": 33,
+          "trn": null,
+          "jky": null,
+          "fav": 33,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": 5,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 71,
+          "pos": 2,
+          "res": "PLACE",
+          "stake": 0.85,
+          "bet_profit": -0.21,
+          "bank_after": 87.24
+        },
+        {
+          "rank": 3,
+          "horse": "Nells Son",
+          "stars": 2,
+          "odds": "6/1",
+          "jockey": "Danny McMenamin",
+          "trainer": "N G Richards",
+          "life": 29,
+          "trn": null,
+          "jky": null,
+          "fav": 11,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": 3,
+          "trnc": null,
+          "cjkc": null,
+          "total": 43,
+          "pos": 1,
+          "res": "WIN",
+          "stake": 0.85,
+          "bet_profit": 3.06,
+          "bank_after": 87.24
+        },
+        {
+          "rank": 4,
+          "horse": "Heart Above",
+          "stars": 3,
+          "odds": "7/1",
+          "jockey": "Charlie Maggs",
+          "trainer": "Mrs Dianne Sayer",
+          "life": 14,
+          "trn": null,
+          "jky": null,
+          "fav": 8,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": 10,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 32,
+          "pos": 5,
+          "res": "LOSE"
+        },
+        {
+          "rank": 5,
+          "horse": "Hourman",
+          "stars": 5,
+          "odds": "5/2",
+          "jockey": "Gregor Walkingshaw",
+          "trainer": "L Russell & M Scudamore",
+          "life": 14,
+          "trn": null,
+          "jky": null,
+          "fav": 17,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 31,
+          "pos": 3,
+          "res": "PLACE"
+        },
+        {
+          "rank": 6,
+          "horse": "Eloi Du Puy",
+          "stars": 3,
+          "odds": "40/1",
+          "jockey": "Bruce Lynn",
+          "trainer": "N W Alexander",
+          "life": 21,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": 10,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 31,
+          "pos": 9,
+          "res": "LOSE"
+        },
+        {
+          "rank": 7,
+          "horse": "It's All About You",
+          "stars": 2,
+          "odds": "25/1",
+          "jockey": "Craig Nichol",
+          "trainer": "Ewan Whillans",
+          "life": 22,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 22,
+          "pos": 11,
+          "res": "LOSE"
+        },
+        {
+          "rank": 8,
+          "horse": "Fox's Fancy",
+          "stars": 3,
+          "odds": "22/1",
+          "jockey": "D R Fox",
+          "trainer": "L Russell & M Scudamore",
+          "life": 13,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": 5,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 18,
+          "pos": 8,
+          "res": "LOSE"
+        },
+        {
+          "rank": 9,
+          "horse": "Pure Gold",
+          "stars": 3,
+          "odds": "15/2",
+          "jockey": "Sean Quinlan",
+          "trainer": "Miss L Harrison",
+          "life": 11,
+          "trn": null,
+          "jky": null,
+          "fav": 6,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 17,
+          "pos": 7,
+          "res": "LOSE"
+        },
+        {
+          "rank": 10,
+          "horse": "Winds Of Winter",
+          "stars": 2,
+          "odds": "22/1",
+          "jockey": "Jonathon Bewley",
+          "trainer": "G Bewley",
+          "life": 10,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 10,
+          "pos": 10,
+          "res": "LOSE"
+        },
+        {
+          "rank": 11,
+          "horse": "Jeriko De Baune",
+          "stars": 2,
+          "odds": "66/1",
+          "jockey": "Joshua Thompson",
+          "trainer": "Mrs J Stephen",
+          "life": 10,
+          "trn": null,
+          "jky": null,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 10,
+          "pos": 6,
+          "res": "LOSE"
+        }
+      ]
+    },
+    {
       "time": "15:50",
       "meeting": "Southwell",
       "name": "ARC All Weather Bonus Is Back EBF 'Confined' Restricted Maiden Stakes",
@@ -6225,9 +7044,9 @@
           "total": 65.8,
           "pos": 8,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.96
+          "stake": 0.87,
+          "bet_profit": -0.87,
+          "bank_after": 86.54
         },
         {
           "rank": 2,
@@ -6251,9 +7070,9 @@
           "total": 50,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.13,
-          "bank_after": 10.96
+          "stake": 0.87,
+          "bet_profit": 1.04,
+          "bank_after": 86.54
         },
         {
           "rank": 3,
@@ -6277,9 +7096,9 @@
           "total": 46.85,
           "pos": 12,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.96
+          "stake": 0.87,
+          "bet_profit": -0.87,
+          "bank_after": 86.54
         },
         {
           "rank": 4,
@@ -6544,9 +7363,9 @@
           "total": 61,
           "pos": 9,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.63
+          "stake": 0.87,
+          "bet_profit": -0.87,
+          "bank_after": 83.93
         },
         {
           "rank": 2,
@@ -6570,9 +7389,9 @@
           "total": 54,
           "pos": 5,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.63
+          "stake": 0.87,
+          "bet_profit": -0.87,
+          "bank_after": 83.93
         },
         {
           "rank": 3,
@@ -6596,9 +7415,9 @@
           "total": 46,
           "pos": 13,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.63
+          "stake": 0.87,
+          "bet_profit": -0.87,
+          "bank_after": 83.93
         },
         {
           "rank": 4,
@@ -7070,9 +7889,9 @@
           "total": 35.53,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.23,
-          "bank_after": 10.64
+          "stake": 0.84,
+          "bet_profit": 1.76,
+          "bank_after": 84.01
         },
         {
           "rank": 2,
@@ -7096,9 +7915,9 @@
           "total": 33,
           "pos": 6,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.64
+          "stake": 0.84,
+          "bet_profit": -0.84,
+          "bank_after": 84.01
         },
         {
           "rank": 3,
@@ -7122,9 +7941,9 @@
           "total": 20.0,
           "pos": 8,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.64
+          "stake": 0.84,
+          "bet_profit": -0.84,
+          "bank_after": 84.01
         },
         {
           "rank": 4,
@@ -7389,9 +8208,9 @@
           "total": 53.85,
           "pos": 6,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.6
+          "stake": 0.84,
+          "bet_profit": -0.84,
+          "bank_after": 83.72
         },
         {
           "rank": 2,
@@ -7415,9 +8234,9 @@
           "total": 43,
           "pos": 4,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.6
+          "stake": 0.84,
+          "bet_profit": -0.84,
+          "bank_after": 83.72
         },
         {
           "rank": 3,
@@ -7441,9 +8260,9 @@
           "total": 40,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.18,
-          "bank_after": 10.6
+          "stake": 0.84,
+          "bet_profit": 1.39,
+          "bank_after": 83.72
         },
         {
           "rank": 4,
@@ -7662,9 +8481,9 @@
           "total": 66,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.04,
-          "bank_after": 10.57
+          "stake": 0.84,
+          "bet_profit": 0.34,
+          "bank_after": 83.56
         },
         {
           "rank": 2,
@@ -7688,9 +8507,9 @@
           "total": 52.85,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": 0.04,
-          "bank_after": 10.57
+          "stake": 0.84,
+          "bet_profit": 0.34,
+          "bank_after": 83.56
         },
         {
           "rank": 3,
@@ -7714,9 +8533,9 @@
           "total": 17,
           "pos": 6,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 10.57
+          "stake": 0.84,
+          "bet_profit": -0.84,
+          "bank_after": 83.56
         },
         {
           "rank": 4,
@@ -7889,9 +8708,9 @@
           "total": 70,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 1.06,
-          "bank_after": 11.41
+          "stake": 0.84,
+          "bet_profit": 8.06,
+          "bank_after": 89.94
         },
         {
           "rank": 2,
@@ -7915,9 +8734,9 @@
           "total": 57,
           "pos": 12,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.41
+          "stake": 0.84,
+          "bet_profit": -0.84,
+          "bank_after": 89.94
         },
         {
           "rank": 3,
@@ -7941,9 +8760,9 @@
           "total": 35,
           "pos": 5,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.41
+          "stake": 0.84,
+          "bet_profit": -0.84,
+          "bank_after": 89.94
         },
         {
           "rank": 4,
@@ -8231,9 +9050,9 @@
           "total": 54,
           "pos": 6,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.16
+          "stake": 0.9,
+          "bet_profit": -0.9,
+          "bank_after": 87.91
         },
         {
           "rank": 2,
@@ -8257,9 +9076,9 @@
           "total": 28,
           "pos": 7,
           "res": "LOSE",
-          "stake": 0.11,
-          "bet_profit": -0.11,
-          "bank_after": 11.16
+          "stake": 0.9,
+          "bet_profit": -0.9,
+          "bank_after": 87.91
         },
         {
           "rank": 3,
@@ -8283,9 +9102,9 @@
           "total": 23,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": -0.03,
-          "bank_after": 11.16
+          "stake": 0.9,
+          "bet_profit": -0.23,
+          "bank_after": 87.91
         },
         {
           "rank": 4,
@@ -8481,9 +9300,9 @@
           "total": 51,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": -0.03,
-          "bank_after": 11.38
+          "stake": 0.88,
+          "bet_profit": -0.25,
+          "bank_after": 89.64
         },
         {
           "rank": 2,
@@ -8507,9 +9326,9 @@
           "total": 33,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.22,
-          "bank_after": 11.38
+          "stake": 0.88,
+          "bet_profit": 1.76,
+          "bank_after": 89.64
         },
         {
           "rank": 3,
@@ -8533,9 +9352,9 @@
           "total": 25,
           "pos": 3,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": 0.03,
-          "bank_after": 11.38
+          "stake": 0.88,
+          "bet_profit": 0.22,
+          "bank_after": 89.64
         },
         {
           "rank": 4,
@@ -8702,7 +9521,7 @@
     }
   ],
   "bank": {
-    "start": 11.67,
-    "end": 11.38
+    "start": 86.1,
+    "end": 89.64
   }
 }

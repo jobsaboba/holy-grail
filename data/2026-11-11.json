@@ -1,6 +1,6 @@
 {
   "date": "2026-11-11",
-  "updated": "2026-11-11T14:01:25+0000",
+  "updated": "2026-11-11T15:20:52+0000",
   "races": [
     {
       "time": "13:00",
@@ -33,9 +33,9 @@
           "total": 115.23,
           "pos": 3,
           "res": "PLACE",
-          "stake": 0.14,
-          "bet_profit": -0.02,
-          "bank_after": 15.03
+          "stake": 1.22,
+          "bet_profit": -0.2,
+          "bank_after": 127.12
         },
         {
           "rank": 2,
@@ -59,9 +59,9 @@
           "total": 109.78,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.14,
-          "bet_profit": 0.71,
-          "bank_after": 15.03
+          "stake": 1.22,
+          "bet_profit": 6.22,
+          "bank_after": 127.12
         },
         {
           "rank": 3,
@@ -85,9 +85,9 @@
           "total": 58.0,
           "pos": 7,
           "res": "LOSE",
-          "stake": 0.14,
-          "bet_profit": -0.14,
-          "bank_after": 15.03
+          "stake": 1.22,
+          "bet_profit": -1.22,
+          "bank_after": 127.12
         },
         {
           "rank": 4,
@@ -237,9 +237,9 @@
           "total": 159.64,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.15,
-          "bet_profit": -0.06,
-          "bank_after": 14.91
+          "stake": 1.27,
+          "bet_profit": -0.51,
+          "bank_after": 126.1
         },
         {
           "rank": 2,
@@ -263,9 +263,9 @@
           "total": 153.55,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.15,
-          "bet_profit": 0.09,
-          "bank_after": 14.91
+          "stake": 1.27,
+          "bet_profit": 0.76,
+          "bank_after": 126.1
         },
         {
           "rank": 3,
@@ -289,9 +289,9 @@
           "total": 33.0,
           "pos": 5,
           "res": "LOSE",
-          "stake": 0.15,
-          "bet_profit": -0.15,
-          "bank_after": 14.91
+          "stake": 1.27,
+          "bet_profit": -1.27,
+          "bank_after": 126.1
         },
         {
           "rank": 4,
@@ -2949,7 +2949,7 @@
     }
   ],
   "bank": {
-    "start": 14.48,
-    "end": 14.91
+    "start": 122.32,
+    "end": 126.1
   }
 }
