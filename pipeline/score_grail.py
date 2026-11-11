@@ -69,7 +69,13 @@ RM = "https://www.racemetrics.co.uk"
 HRN = "https://www.horseracing.net"
 
 MIN_RUNNERS = 8
-COURSE_COUNTRIES = {"ENG", "IRE", "EIRE", "WAL", "WLS", "SCO", "SCT"}
+# SL's country short_names are ENG / Wale / Scot / Eire — the pre-filter
+# uppercases before comparing, so both spellings of each must be listed.
+# Missing "WALE"/"SCOT" silently dropped every Welsh & Scottish meeting
+# (Bangor-on-Dee, Chepstow, Ffos Las, Ayr, Kelso, Musselburgh, Perth,
+# Hamilton) for the whole season.
+COURSE_COUNTRIES = {"ENG", "IRE", "EIRE", "WAL", "WLS", "SCO", "SCT",
+                    "WALE", "SCOT"}
 FAV_POINTS = {1: 33, 2: 17, 3: 11, 4: 8, 5: 6}   # first five favs only
 CD_PTS, DIST_PTS, CRS_PTS = 10, 5, 3
 TOP3 = 3

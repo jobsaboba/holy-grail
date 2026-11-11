@@ -217,7 +217,7 @@ function render(){
     }catch(err){
       app.insertAdjacentHTML("beforeend",
         '<div class="err">Race render skipped (' + esc(err.message) + '): ' +
-        esc(rc.time) + " " + esc(rc.meeting) + '</div>');
+        esc(ukTime(DATA.date, rc.time)) + " " + esc(rc.meeting) + '</div>');
     }
   }
 
@@ -264,13 +264,30 @@ function raceCard(rc){
 
   div.innerHTML =
     `<div class="rc-head">
-      <div class="t">${esc(rc.time)} ${esc(rc.meeting)}</div>
+      <div class="t">${esc(ukTime(DATA.date, rc.time))} ${esc(rc.meeting)}</div>
       <div class="meta">${rc.runners.length} runners${rc.class ? " · Cl " + esc(rc.class) : ""}<br>${esc(rc.distance || "")}</div>
     </div>
     <div class="rc-name">${esc(rc.name || "")}${rc.going ? " · " + esc(rc.going) : ""}</div>
     <div class="tblwrap"><table class="runner">${rows}</table></div>
     <div class="rc-count">sorted highest → lowest score · swipe the scores, results stay put</div>`;
   return div;
+}
+
+// SL's JSON race times are UTC; their site adds the UK hour. BST months
+// (last Sun Mar 01:00 UTC → last Sun Oct 01:00 UTC) must display +1h.
+function ukTime(date, time){
+  try{
+    const p = date.split("-").map(Number);
+    const dt = Date.UTC(p[0], p[1] - 1, p[2], 12);
+    const lastSun = (mi) => { const e = new Date(Date.UTC(p[0], mi + 1, 0));
+                              return e.getUTCDate() - e.getUTCDay(); };
+    const start = Date.UTC(p[0], 2, lastSun(2), 1);
+    const end   = Date.UTC(p[0], 9, lastSun(9), 1);
+    let mins = Number(time.slice(0, 2)) * 60 + Number(time.slice(3, 5));
+    if(dt >= start && dt < end) mins += 60;
+    return String(Math.floor(mins / 60) % 24).padStart(2, "0") + ":" +
+           String(mins % 60).padStart(2, "0");
+  }catch(e){ return time; }
 }
 
 function esc(s){

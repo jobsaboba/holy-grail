@@ -1,5 +1,5 @@
 /* The Holy Grail — service worker (app shell cache + always-fresh day data) */
-const CACHE = "grailapp-v5";
+const CACHE = "grailapp-v6";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest",
                "./icons/icon-192.png", "./icons/icon-512.png"];
 
