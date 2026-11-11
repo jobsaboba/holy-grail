@@ -1,6 +1,6 @@
 {
   "date": "2026-11-11",
-  "updated": "2026-11-11T06:15:26+0000",
+  "updated": "2026-11-11T13:23:09+0000",
   "races": [
     {
       "time": "14:30",
@@ -874,29 +874,6 @@
         },
         {
           "rank": 7,
-          "horse": "Ossie's Lodge",
-          "stars": 3,
-          "odds": "14/1",
-          "jockey": "N G McCullagh",
-          "trainer": "A J Martin",
-          "life": 11,
-          "trn": null,
-          "jky": 0.0,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 11.0,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 8,
           "horse": "Bugsy Siegel",
           "stars": 2,
           "odds": "20/1",
@@ -919,7 +896,7 @@
           "res": null
         },
         {
-          "rank": 9,
+          "rank": 8,
           "horse": "Subtle Shade",
           "stars": 3,
           "odds": "16/1",
@@ -942,7 +919,7 @@
           "res": null
         },
         {
-          "rank": 10,
+          "rank": 9,
           "horse": "Positive Thinking",
           "stars": 3,
           "odds": "8/1",
@@ -965,7 +942,7 @@
           "res": null
         },
         {
-          "rank": 11,
+          "rank": 10,
           "horse": "Susie's Angel",
           "stars": 2,
           "odds": "50/1",
@@ -988,7 +965,7 @@
           "res": null
         },
         {
-          "rank": 12,
+          "rank": 11,
           "horse": "The Blonde Lady",
           "stars": 1,
           "odds": "100/1",
@@ -1011,7 +988,7 @@
           "res": null
         },
         {
-          "rank": 13,
+          "rank": 12,
           "horse": "Donna Time",
           "stars": 4,
           "odds": "10/1",
@@ -1034,7 +1011,7 @@
           "res": null
         },
         {
-          "rank": 14,
+          "rank": 13,
           "horse": "Dyker Heights",
           "stars": 1,
           "odds": "100/1",
@@ -1345,11 +1322,11 @@
         },
         {
           "rank": 13,
-          "horse": "Celestial Order",
+          "horse": "Farmerspolish",
           "stars": 2,
-          "odds": "20/1",
-          "jockey": "Reserve 1",
-          "trainer": "N Lupini",
+          "odds": "33/1",
+          "jockey": "Billy Lee",
+          "trainer": "H De Bromhead",
           "life": null,
           "trn": null,
           "jky": null,
@@ -1386,75 +1363,6 @@
           "trnc": null,
           "cjkc": null,
           "total": 0.0,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 15,
-          "horse": "Farmerspolish",
-          "stars": 2,
-          "odds": "33/1",
-          "jockey": "Billy Lee",
-          "trainer": "H De Bromhead",
-          "life": null,
-          "trn": null,
-          "jky": null,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 0,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 16,
-          "horse": "In Sequence",
-          "stars": 2,
-          "odds": "50/1",
-          "jockey": "Reserve 3",
-          "trainer": "A McIntyre",
-          "life": null,
-          "trn": null,
-          "jky": null,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 0,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 17,
-          "horse": "Sevengrandchildren",
-          "stars": 1,
-          "odds": "100/1",
-          "jockey": "Reserve 2",
-          "trainer": "M Mulvany",
-          "life": null,
-          "trn": null,
-          "jky": null,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 0,
           "pos": 0,
           "res": null
         }
@@ -1724,29 +1632,6 @@
         },
         {
           "rank": 12,
-          "horse": "Golddream",
-          "stars": 2,
-          "odds": "10/1",
-          "jockey": "Reserve 1",
-          "trainer": "D Marnane",
-          "life": 11,
-          "trn": null,
-          "jky": null,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": 3,
-          "trnc": null,
-          "cjkc": null,
-          "total": 14,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 13,
           "horse": "Tolebi",
           "stars": 3,
           "odds": "25/1",
@@ -1769,7 +1654,7 @@
           "res": null
         },
         {
-          "rank": 14,
+          "rank": 13,
           "horse": "Teffian Warrior",
           "stars": 4,
           "odds": "16/1",
@@ -1792,7 +1677,7 @@
           "res": null
         },
         {
-          "rank": 15,
+          "rank": 14,
           "horse": "Isthatrightkatie",
           "stars": 2,
           "odds": "33/1",
@@ -2126,29 +2011,6 @@
         },
         {
           "rank": 14,
-          "horse": "Chloe's Boy",
-          "stars": 2,
-          "odds": "10/1",
-          "jockey": "Reserve 1",
-          "trainer": "H Rogers",
-          "life": 9,
-          "trn": null,
-          "jky": null,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 9,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 15,
           "horse": "Almost Okay",
           "stars": 2,
           "odds": "25/1",
@@ -2174,7 +2036,7 @@
     }
   ],
   "bank": {
-    "start": 11.99,
-    "end": 11.99
+    "start": 14.48,
+    "end": 14.48
   }
 }
