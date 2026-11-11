@@ -1,10 +1,11 @@
 name: settle grail
 
 # Settles + republishes the Holy Grail data straight from GitHub's
-# servers: scores today (and yesterday for late finishes), commits any
-# change and pushes — the phone app's ⟳ then shows it. Sporting Life /
-# Racing Manager / HRN are scraped live on every run; nothing carries
-# over between runs.
+# servers. The FIRST run of the day is the morning publish: full scoring
+# (stats included) — that sheet is the record. Every later 15-min run is
+# settle-only: it patches results and the bank off the stored sheet,
+# never re-scoring. Commits any change and pushes — the phone app's ⟳
+# then shows it. Sporting Life is scraped live on every run.
 
 on:
   schedule:
@@ -35,7 +36,17 @@ jobs:
         run: |
           T=$(TZ=Europe/London date +%F)
           Y=$(TZ=Europe/London date -d "yesterday" +%F)
-          echo "=== $T ==="
-          python3 pipeline/score_grail.py --date "$T" --refresh --publish
-          echo "=== $Y ==="
-          python3 pipeline/score_grail.py --date "$Y" --refresh --publish
+          if [ ! -f "data/$T.json" ]; then
+            # MORNING PUBLISH — the one full scoring run of the day: stats
+            # are scored here and this becomes the sheet of record.
+            echo "=== morning publish $Y (full score) ==="
+            python3 pipeline/score_grail.py --date "$Y" --refresh --publish
+            echo "=== morning publish $T (full score) ==="
+            python3 pipeline/score_grail.py --date "$T" --refresh --publish
+          else
+            # today's sheet already published — settle only: results + bank
+            echo "=== settle-only $T ==="
+            python3 pipeline/score_grail.py --date "$T" --refresh --settle
+            echo "=== settle-only $Y ==="
+            python3 pipeline/score_grail.py --date "$Y" --refresh --settle
+          fi

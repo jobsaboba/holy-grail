@@ -671,14 +671,17 @@ def _bank_walk(j: dict, bank: float) -> float:
                 if (r.get("rank") or i + 1) <= TOP3][:TOP3]
         if len(rows) < 3:
             continue                             # short/payload-day — no bets
-        if any(r.get("res") not in ("WIN", "PLACE", "LOSE") for r in rows):
+        if any(r.get("res") not in ("WIN", "PLACE", "LOSE", "NR") for r in rows):
             continue                             # a bet still pending — no money
+        betrows = [r for r in rows if r.get("res") != "NR"]
+        if not betrows:
+            continue                             # the whole trio is NR — no bets
         stake = round(bank * GRAIL_STAKE_PCT, 2)
         stake = max(stake, 0.01)           # Ladbrokes takes 1p stakes, so the
         bets, net = [], 0.0                # 1% rule survives small banks
-        for r in rows:
+        for r in betrows:                  # NR picks are void — stake returned
             prof = bet_return(r.get("odds"), r.get("res"), stake, r.get("pos"))
-            if prof is None:
+            if prof is None:               # settled with no price → the lot
                 prof = round(-stake, 2)
             bets.append((r, prof))
             net = round(net + prof, 2)
@@ -1101,20 +1104,135 @@ def publish_app(dstr: str, cards: list[dict], push: bool = True) -> None:
     print("Committed app data.")
 
     if push:
-        last_exc: Exception | None = None
-        for attempt in range(3):            # GitHub TLS flakes occasionally
-            try:
-                run_git("push")
-                print("Pushed to GitHub — open the app on the phone and tap ⟳.")
-                break
-            except RuntimeError as exc:
-                last_exc = exc
-                time.sleep(3 * (attempt + 1))
-        else:
-            sys.stderr.write(
-                "PUSH FAILED after 3 tries — run manually:\n"
-                "  cd ~/projects/holy-grail && git push\n\n" + str(last_exc) + "\n")
-            sys.exit(1)
+        push_app_data()
+
+
+def push_app_data() -> None:
+    """Push the app repo, retrying GitHub's occasional TLS flakes."""
+    last_exc: Exception | None = None
+    for attempt in range(3):            # GitHub TLS flakes occasionally
+        try:
+            run_git("push")
+            print("Pushed to GitHub — open the app on the phone and tap ⟳.")
+            return
+        except RuntimeError as exc:
+            last_exc = exc
+            time.sleep(3 * (attempt + 1))
+    sys.stderr.write(
+        "PUSH FAILED after 3 tries — run manually:\n"
+        "  cd ~/projects/holy-grail && git push\n\n" + str(last_exc) + "\n")
+    sys.exit(1)
+
+
+def settle_only(dstr: str, push: bool = True) -> None:
+    """Late-day mode: the morning publish is the sheet of record — stats are
+    NEVER re-scored. This patches stored results only (res/pos off the fresh
+    results card), marks any pick gone from the card NR, re-stamps the bank
+    chain off the stored days, and pushes. A race not yet off stays exactly
+    as stored — it settles whenever SL posts it, or not at all."""
+    data_dir = APP_DIR / "data"
+    day_path = data_dir / f"{dstr}.json"
+    if not day_path.exists():
+        print(f"settle {dstr}: no stored day file — nothing to settle")
+        return
+    payload = json.loads(day_path.read_text(encoding="utf-8"))
+
+    try:
+        index = scrape_races_index(dstr, True)
+    except RuntimeError as exc:
+        print(f"settle {dstr}: {exc} — stored day left untouched")
+        return
+    fresh: dict[str, tuple[dict, int | None]] = {}
+    for race in index:
+        try:
+            card = fetch_racecard(dstr, race, True)
+        except Exception:
+            continue
+        by_horse = {norm(rd["horse"]): rd for rd in card["runs"]}
+        finished = any(isinstance(rd.get("pos"), int) and rd["pos"] >= 1
+                       for rd in card["runs"])
+        fresh[f"{norm(card['meeting'])}|{card['time']}"] = (
+            by_horse, card.get("placed"), finished)
+
+    def res_for(rd: dict, placed: int | None, finished: bool) -> str | None:
+        if rd["status"] != "RUNNER":
+            return "NR"
+        pos = rd.get("pos")
+        if pos in (None, 0):
+            # result posted but this runner has no position → SL has no
+            # result for it at all: void leg, stake returned
+            return "NR" if finished else None
+        p = int(pos)
+        n = placed if placed else 3
+        return "WIN" if p == 1 else ("PLACE" if p <= n else "LOSE")
+
+    patched = 0
+    for rc in payload.get("races") or []:
+        hit = fresh.get(f"{norm(rc['meeting'])}|{rc['time']}")
+        if not hit:
+            continue
+        by_horse, placed, finished = hit
+        for rr in rc.get("runners") or []:
+            if rr.get("res") in ("WIN", "PLACE", "LOSE"):
+                continue                    # settled rows are frozen
+            rd = by_horse.get(norm(rr["horse"]))
+            if rd is None:
+                new, newpos = "NR", None    # gone from the card → non-runner
+            else:
+                new = res_for(rd, placed, finished)
+                if new is None:
+                    continue                # still not off — no change
+                newpos = rd.get("pos")
+            if rr.get("res") == new:
+                continue
+            rr["res"], rr["pos"] = new, newpos
+            patched += 1
+        rc["settled"] = any(r.get("res") for r in (rc.get("runners") or []))
+
+    if not patched:
+        print(f"settle {dstr}: nothing new to settle")
+        return
+    payload["updated"] = datetime.now(
+        ZoneInfo("Europe/London")).strftime("%Y-%m-%dT%H:%M:%S%z")
+    day_path.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8")
+
+    # re-chain the whole ledger off the stored days (this day included)
+    grail_bank_replay(data_dir, "9999-99-99", [])
+    for rc in payload.get("races") or []:
+        for rr in rc.get("runners") or []:
+            hit = _BANK.get(bank_key(dstr, rc["time"], rc["meeting"],
+                                     rr["horse"]))
+            if hit:
+                rr["stake"], rr["bet_profit"], rr["bank_after"] = hit
+    bs, be = _BANK_DAYS.get(dstr, (GRAIL_START_BANK, GRAIL_START_BANK))
+    payload["bank"] = {"start": bs, "end": be}
+    day_path.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8")
+
+    days = sorted(p.stem for p in data_dir.glob("????-??-??.json"))
+    latest = days[-1]
+    src = json.loads((data_dir / f"{latest}.json").read_text(encoding="utf-8"))
+    (data_dir / "latest.json").write_text(
+        json.dumps(src, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (data_dir / "index.json").write_text(json.dumps(
+        {"latest": latest, "days": list(reversed(days)),
+         "updated": payload["updated"]}, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8")
+
+    print(f"settle {dstr}: {patched} result rows patched · "
+          f"bank £{bs:.2f} → £{be:.2f}")
+    if run_git("status", "--porcelain", "--", "data") == "":
+        print("No data change — nothing to commit.")
+        return
+    run_git("add", "data")
+    run_git("-c", f"user.name={COMMIT_NAME}", "-c", f"user.email={COMMIT_EMAIL}",
+            "commit", "-m", f"grail {dstr} {payload['updated'][11:16]} (auto)")
+    print("Committed app data.")
+    if push:
+        push_app_data()
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -1123,13 +1241,21 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--refresh", action="store_true", help="ignore cached pages")
     ap.add_argument("--publish", action="store_true",
                     help="push the day's scoring to the phone app repo")
+    ap.add_argument("--settle", action="store_true",
+                    help="settle-only: patch stored results + bank, no re-scoring")
     ap.add_argument("--no-push", action="store_true",
-                    help="with --publish: commit only, don't push")
+                    help="with --publish/--settle: commit only, don't push")
     args = ap.parse_args(argv)
 
     dstr = args.date or london_today()
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", dstr):
         ap.error("--date must be YYYY-MM-DD")
+
+    if args.settle:
+        if args.publish:
+            ap.error("--publish and --settle are mutually exclusive")
+        settle_only(dstr, push=not args.no_push)
+        return 0
 
     cards = build(dstr, args.refresh)
 
