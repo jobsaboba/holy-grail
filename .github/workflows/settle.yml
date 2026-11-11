@@ -36,17 +36,29 @@ jobs:
         run: |
           T=$(TZ=Europe/London date +%F)
           Y=$(TZ=Europe/London date -d "yesterday" +%F)
-          if [ ! -f "data/$T.json" ]; then
+          # Settle-only ONLY when today's sheet was published at/after 07:00
+          # London — an older/overnight file means the morning publish is
+          # still owed (the runner's overnight cycles must never become the
+          # sheet of record).
+          if python3 -c "
+import json, pathlib, sys
+try:
+    s = json.loads(pathlib.Path('data/$T.json').read_text())['updated']
+    ok = s[:10] == '$T' and s[11:13] >= '07'
+except Exception:
+    ok = False
+sys.exit(0 if ok else 1)
+"; then
+            # today's sheet published — settle only: results + bank
+            echo "=== settle-only $T ==="
+            python3 pipeline/score_grail.py --date "$T" --refresh --settle
+            echo "=== settle-only $Y ==="
+            python3 pipeline/score_grail.py --date "$Y" --refresh --settle
+          else
             # MORNING PUBLISH — the one full scoring run of the day: stats
             # are scored here and this becomes the sheet of record.
             echo "=== morning publish $Y (full score) ==="
             python3 pipeline/score_grail.py --date "$Y" --refresh --publish
             echo "=== morning publish $T (full score) ==="
             python3 pipeline/score_grail.py --date "$T" --refresh --publish
-          else
-            # today's sheet already published — settle only: results + bank
-            echo "=== settle-only $T ==="
-            python3 pipeline/score_grail.py --date "$T" --refresh --settle
-            echo "=== settle-only $Y ==="
-            python3 pipeline/score_grail.py --date "$Y" --refresh --settle
           fi
