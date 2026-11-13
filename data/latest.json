@@ -1,6 +1,6 @@
 {
   "date": "2026-11-13",
-  "updated": "2026-11-13T13:30:27+0000",
+  "updated": "2026-11-13T15:00:25+0000",
   "races": [
     {
       "time": "12:20",
@@ -1175,7 +1175,7 @@
       "class": "1",
       "distance": "2m 5f",
       "going": "Good-good to soft in places",
-      "settled": false,
+      "settled": true,
       "runners": [
         {
           "rank": 1,
@@ -1221,7 +1221,7 @@
           "cjkc": null,
           "total": 149.11,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 3,
