@@ -1,6 +1,6 @@
 {
   "date": "2026-06-26",
-  "updated": "2026-11-11T15:20:52+0000",
+  "updated": "2026-11-15T05:28:13+0000",
   "races": [
     {
       "time": "17:33",
@@ -32,7 +32,10 @@
           "cjkc": null,
           "total": 126.45,
           "pos": 1,
-          "res": "WIN"
+          "res": "WIN",
+          "stake": 0.8,
+          "bet_profit": 1.6,
+          "bank_after": 81.1
         },
         {
           "rank": 2,
@@ -55,7 +58,10 @@
           "cjkc": null,
           "total": 50.370000000000005,
           "pos": 5,
-          "res": "LOSE"
+          "res": "LOSE",
+          "stake": 0.8,
+          "bet_profit": -0.8,
+          "bank_after": 81.1
         },
         {
           "rank": 3,
@@ -78,7 +84,7 @@
           "cjkc": null,
           "total": 29.55,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 4,
@@ -250,7 +256,10 @@
           "cjkc": null,
           "total": 52,
           "pos": 1,
-          "res": "WIN"
+          "res": "WIN",
+          "stake": 0.81,
+          "bet_profit": 0.97,
+          "bank_after": 81.26
         },
         {
           "rank": 2,
@@ -273,7 +282,10 @@
           "cjkc": null,
           "total": 34.9,
           "pos": 4,
-          "res": "LOSE"
+          "res": "LOSE",
+          "stake": 0.81,
+          "bet_profit": -0.81,
+          "bank_after": 81.26
         },
         {
           "rank": 3,
@@ -296,7 +308,7 @@
           "cjkc": null,
           "total": 25,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 4,
@@ -342,7 +354,7 @@
           "cjkc": null,
           "total": 13,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 6,
@@ -411,13 +423,13 @@
           "cjkc": null,
           "total": 0,
           "pos": 0,
-          "res": null
+          "res": "NR"
         }
       ]
     }
   ],
   "bank": {
-    "start": 50.58,
-    "end": 50.58
+    "start": 80.3,
+    "end": 81.26
   }
 }
