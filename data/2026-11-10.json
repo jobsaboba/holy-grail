@@ -1851,7 +1851,7 @@
           "cjkc": 26.0,
           "total": 228.2,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 2,
@@ -1874,7 +1874,7 @@
           "cjkc": 31.0,
           "total": 118.33,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 3,
@@ -1897,7 +1897,7 @@
           "cjkc": null,
           "total": 79.05,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 4,
@@ -1920,7 +1920,7 @@
           "cjkc": null,
           "total": 77.75,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 5,
@@ -1966,7 +1966,7 @@
           "cjkc": null,
           "total": 30.0,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 7,
@@ -1989,7 +1989,7 @@
           "cjkc": null,
           "total": 26.380000000000003,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 8,
@@ -2012,7 +2012,7 @@
           "cjkc": null,
           "total": 20.0,
           "pos": 0,
-          "res": null
+          "res": "NR"
         }
       ]
     }
