@@ -1,6 +1,6 @@
 {
   "date": "2026-01-08",
-  "updated": "2026-11-11T15:20:52+0000",
+  "updated": "2026-11-15T05:04:15+0000",
   "races": [
     {
       "time": "12:40",
@@ -33,9 +33,9 @@
           "total": 174.78,
           "pos": 1,
           "res": "WIN",
-          "stake": 0.11,
-          "bet_profit": 0.06,
-          "bank_after": 10.93
+          "stake": 0.1,
+          "bet_profit": 0.05,
+          "bank_after": 10.57
         },
         {
           "rank": 2,
@@ -59,9 +59,9 @@
           "total": 73.67,
           "pos": 2,
           "res": "PLACE",
-          "stake": 0.11,
+          "stake": 0.1,
           "bet_profit": -0.04,
-          "bank_after": 10.93
+          "bank_after": 10.57
         },
         {
           "rank": 3,
@@ -85,9 +85,9 @@
           "total": 43.370000000000005,
           "pos": 3,
           "res": "PLACE",
-          "stake": 0.11,
-          "bet_profit": 0.08,
-          "bank_after": 10.93
+          "stake": 0.1,
+          "bet_profit": 0.07,
+          "bank_after": 10.57
         },
         {
           "rank": 4,
@@ -110,7 +110,7 @@
           "cjkc": null,
           "total": 36,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 5,
@@ -308,7 +308,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.93
+          "bank_after": 10.57
         },
         {
           "rank": 2,
@@ -334,7 +334,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.93
+          "bank_after": 10.57
         },
         {
           "rank": 3,
@@ -360,7 +360,7 @@
           "res": "WIN",
           "stake": 0.11,
           "bet_profit": 0.22,
-          "bank_after": 10.93
+          "bank_after": 10.57
         },
         {
           "rank": 4,
@@ -498,7 +498,7 @@
           "cjkc": null,
           "total": 8.33,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 10,
@@ -521,7 +521,7 @@
           "cjkc": null,
           "total": 7.55,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 11,
@@ -601,7 +601,10 @@
           "cjkc": null,
           "total": 119.0,
           "pos": 4,
-          "res": "LOSE"
+          "res": "LOSE",
+          "stake": 0.11,
+          "bet_profit": -0.11,
+          "bank_after": 10.76
         },
         {
           "rank": 2,
@@ -624,7 +627,7 @@
           "cjkc": null,
           "total": 88.67,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 3,
@@ -647,7 +650,10 @@
           "cjkc": null,
           "total": 47,
           "pos": 1,
-          "res": "WIN"
+          "res": "WIN",
+          "stake": 0.11,
+          "bet_profit": 0.3,
+          "bank_after": 10.76
         },
         {
           "rank": 4,
@@ -693,7 +699,7 @@
           "cjkc": null,
           "total": 22.33,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 6,
@@ -762,7 +768,7 @@
           "cjkc": null,
           "total": 8,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 9,
@@ -845,7 +851,7 @@
           "res": "WIN",
           "stake": 0.11,
           "bet_profit": 0.17,
-          "bank_after": 10.97
+          "bank_after": 10.8
         },
         {
           "rank": 2,
@@ -871,7 +877,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.97
+          "bank_after": 10.8
         },
         {
           "rank": 3,
@@ -897,7 +903,7 @@
           "res": "PLACE",
           "stake": 0.11,
           "bet_profit": -0.02,
-          "bank_after": 10.97
+          "bank_after": 10.8
         },
         {
           "rank": 4,
@@ -943,7 +949,7 @@
           "cjkc": null,
           "total": 28,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 6,
@@ -989,7 +995,7 @@
           "cjkc": null,
           "total": 16,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 8,
@@ -1049,7 +1055,7 @@
           "res": "PLACE",
           "stake": 0.11,
           "bet_profit": 0.01,
-          "bank_after": 10.76
+          "bank_after": 10.59
         },
         {
           "rank": 2,
@@ -1075,7 +1081,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.76
+          "bank_after": 10.59
         },
         {
           "rank": 3,
@@ -1101,7 +1107,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.76
+          "bank_after": 10.59
         },
         {
           "rank": 4,
@@ -1193,7 +1199,7 @@
           "cjkc": null,
           "total": 6,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 8,
@@ -1299,7 +1305,7 @@
           "res": "LOSE",
           "stake": 0.11,
           "bet_profit": -0.11,
-          "bank_after": 10.95
+          "bank_after": 10.78
         },
         {
           "rank": 2,
@@ -1325,7 +1331,7 @@
           "res": "PLACE",
           "stake": 0.11,
           "bet_profit": -0.03,
-          "bank_after": 10.95
+          "bank_after": 10.78
         },
         {
           "rank": 3,
@@ -1351,7 +1357,7 @@
           "res": "WIN",
           "stake": 0.11,
           "bet_profit": 0.33,
-          "bank_after": 10.95
+          "bank_after": 10.78
         },
         {
           "rank": 4,
@@ -1472,7 +1478,7 @@
     }
   ],
   "bank": {
-    "start": 10.83,
-    "end": 10.95
+    "start": 10.49,
+    "end": 10.78
   }
 }
