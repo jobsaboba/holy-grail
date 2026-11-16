@@ -1,6 +1,6 @@
 {
   "date": "2026-11-16",
-  "updated": "2026-11-16T16:00:34+0000",
+  "updated": "2026-11-16T17:00:24+0000",
   "races": [
     {
       "time": "13:15",
@@ -1008,8 +1008,11 @@
           "trnc": null,
           "cjkc": null,
           "total": 56.65,
-          "pos": 0,
-          "res": null
+          "pos": 2,
+          "res": "PLACE",
+          "stake": 2.65,
+          "bet_profit": 0.13,
+          "bank_after": 276.22
         },
         {
           "rank": 3,
@@ -1031,8 +1034,11 @@
           "trnc": null,
           "cjkc": null,
           "total": 40.76,
-          "pos": 0,
-          "res": null
+          "pos": 1,
+          "res": "WIN",
+          "stake": 2.65,
+          "bet_profit": 11.13,
+          "bank_after": 276.22
         },
         {
           "rank": 4,
@@ -1054,8 +1060,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 25.0,
-          "pos": 0,
-          "res": null
+          "pos": 5,
+          "res": "LOSE"
         },
         {
           "rank": 5,
@@ -1077,8 +1083,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 25.0,
-          "pos": 0,
-          "res": null
+          "pos": 9,
+          "res": "LOSE"
         },
         {
           "rank": 6,
@@ -1123,8 +1129,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 20.0,
-          "pos": 0,
-          "res": null
+          "pos": 8,
+          "res": "LOSE"
         },
         {
           "rank": 8,
@@ -1146,8 +1152,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 18.380000000000003,
-          "pos": 0,
-          "res": null
+          "pos": 4,
+          "res": "LOSE"
         },
         {
           "rank": 9,
@@ -1169,8 +1175,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 18.0,
-          "pos": 0,
-          "res": null
+          "pos": 6,
+          "res": "LOSE"
         },
         {
           "rank": 10,
@@ -1192,8 +1198,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 15.38,
-          "pos": 0,
-          "res": null
+          "pos": 7,
+          "res": "LOSE"
         },
         {
           "rank": 11,
@@ -1215,8 +1221,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 11.33,
-          "pos": 0,
-          "res": null
+          "pos": 3,
+          "res": "PLACE"
         }
       ]
     },
@@ -3358,6 +3364,6 @@
   ],
   "bank": {
     "start": 257.82,
-    "end": 264.96
+    "end": 276.22
   }
 }
