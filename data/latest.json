@@ -1,6 +1,6 @@
 {
   "date": "2026-11-16",
-  "updated": "2026-11-16T14:30:24+0000",
+  "updated": "2026-11-16T15:00:26+0000",
   "races": [
     {
       "time": "13:15",
@@ -577,8 +577,11 @@
           "trnc": null,
           "cjkc": null,
           "total": 77.11,
-          "pos": 0,
-          "res": null
+          "pos": 2,
+          "res": "PLACE",
+          "stake": 2.66,
+          "bet_profit": -0.8,
+          "bank_after": 270.92
         },
         {
           "rank": 2,
@@ -600,8 +603,11 @@
           "trnc": null,
           "cjkc": null,
           "total": 46.0,
-          "pos": 0,
-          "res": null
+          "pos": 1,
+          "res": "WIN",
+          "stake": 2.66,
+          "bet_profit": 7.98,
+          "bank_after": 270.92
         },
         {
           "rank": 3,
@@ -623,8 +629,11 @@
           "trnc": null,
           "cjkc": 24.0,
           "total": 43.67,
-          "pos": 0,
-          "res": null
+          "pos": 5,
+          "res": "LOSE",
+          "stake": 2.66,
+          "bet_profit": -2.66,
+          "bank_after": 270.92
         },
         {
           "rank": 4,
@@ -647,7 +656,7 @@
           "cjkc": null,
           "total": 40.57,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 5,
@@ -669,8 +678,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 39.79,
-          "pos": 0,
-          "res": null
+          "pos": 4,
+          "res": "LOSE"
         },
         {
           "rank": 6,
@@ -692,8 +701,8 @@
           "trnc": null,
           "cjkc": 21.0,
           "total": 38.51,
-          "pos": 0,
-          "res": null
+          "pos": 3,
+          "res": "LOSE"
         },
         {
           "rank": 7,
@@ -738,8 +747,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 3,
-          "pos": 0,
-          "res": null
+          "pos": 6,
+          "res": "LOSE"
         }
       ]
     },
@@ -3340,6 +3349,6 @@
   ],
   "bank": {
     "start": 257.82,
-    "end": 266.4
+    "end": 270.92
   }
 }
