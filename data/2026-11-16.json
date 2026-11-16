@@ -1,6 +1,6 @@
 {
   "date": "2026-11-16",
-  "updated": "2026-11-16T05:01:37+0000",
+  "updated": "2026-11-16T13:00:28+0000",
   "races": [
     {
       "time": "13:15",
@@ -537,7 +537,7 @@
       "class": "5",
       "distance": "3m 1f 9y",
       "going": "Good-good to soft in places",
-      "settled": false,
+      "settled": true,
       "runners": [
         {
           "rank": 1,
@@ -698,7 +698,7 @@
           "cjkc": null,
           "total": 14.0,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 8,
@@ -927,7 +927,7 @@
       "class": "5",
       "distance": "6f 20y",
       "going": "Standard",
-      "settled": false,
+      "settled": true,
       "runners": [
         {
           "rank": 1,
@@ -950,7 +950,7 @@
           "cjkc": null,
           "total": 69.67,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 2,
@@ -1065,7 +1065,7 @@
           "cjkc": null,
           "total": 23.0,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 7,
@@ -2752,7 +2752,7 @@
       "class": "5",
       "distance": "1m 1f 104y",
       "going": "Standard",
-      "settled": false,
+      "settled": true,
       "runners": [
         {
           "rank": 1,
@@ -2890,7 +2890,7 @@
           "cjkc": null,
           "total": 78.76,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 7,
