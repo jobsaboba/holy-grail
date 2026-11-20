@@ -1,6 +1,6 @@
 {
   "date": "2026-11-20",
-  "updated": "2026-11-20T13:30:42+0000",
+  "updated": "2026-11-20T14:01:03+0000",
   "races": [
     {
       "time": "11:20",
@@ -1982,8 +1982,11 @@
           "trnc": 20.0,
           "cjkc": 20.0,
           "total": 119.39,
-          "pos": 0,
-          "res": null
+          "pos": 4,
+          "res": "LOSE",
+          "stake": 1.49,
+          "bet_profit": -1.49,
+          "bank_after": 145.02
         },
         {
           "rank": 2,
@@ -2005,8 +2008,11 @@
           "trnc": null,
           "cjkc": null,
           "total": 71.39,
-          "pos": 0,
-          "res": null
+          "pos": 6,
+          "res": "LOSE",
+          "stake": 1.49,
+          "bet_profit": -1.49,
+          "bank_after": 145.02
         },
         {
           "rank": 3,
@@ -2028,8 +2034,11 @@
           "trnc": null,
           "cjkc": null,
           "total": 59.62,
-          "pos": 0,
-          "res": null
+          "pos": 5,
+          "res": "LOSE",
+          "stake": 1.49,
+          "bet_profit": -1.49,
+          "bank_after": 145.02
         },
         {
           "rank": 4,
@@ -2051,8 +2060,8 @@
           "trnc": null,
           "cjkc": 23.0,
           "total": 56.65,
-          "pos": 0,
-          "res": null
+          "pos": 7,
+          "res": "LOSE"
         },
         {
           "rank": 5,
@@ -2074,8 +2083,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 52.33,
-          "pos": 0,
-          "res": null
+          "pos": 2,
+          "res": "PLACE"
         },
         {
           "rank": 6,
@@ -2097,8 +2106,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 50.1,
-          "pos": 0,
-          "res": null
+          "pos": 3,
+          "res": "PLACE"
         },
         {
           "rank": 7,
@@ -2120,8 +2129,8 @@
           "trnc": null,
           "cjkc": 33.0,
           "total": 48.5,
-          "pos": 0,
-          "res": null
+          "pos": 8,
+          "res": "LOSE"
         },
         {
           "rank": 8,
@@ -2143,8 +2152,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 43,
-          "pos": 0,
-          "res": null
+          "pos": 1,
+          "res": "WIN"
         },
         {
           "rank": 9,
@@ -2167,7 +2176,7 @@
           "cjkc": null,
           "total": 38.0,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 10,
@@ -2190,7 +2199,7 @@
           "cjkc": null,
           "total": 22.89,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 11,
@@ -2236,7 +2245,7 @@
           "cjkc": null,
           "total": 9.67,
           "pos": 0,
-          "res": null
+          "res": "NR"
         }
       ]
     },
@@ -2269,8 +2278,11 @@
           "trnc": null,
           "cjkc": null,
           "total": 143.67000000000002,
-          "pos": 0,
-          "res": null
+          "pos": 1,
+          "res": "WIN",
+          "stake": 1.45,
+          "bet_profit": 2.9,
+          "bank_after": 147.99
         },
         {
           "rank": 2,
@@ -2293,7 +2305,7 @@
           "cjkc": null,
           "total": 120.0,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 3,
@@ -2315,8 +2327,11 @@
           "trnc": null,
           "cjkc": null,
           "total": 105.0,
-          "pos": 0,
-          "res": null
+          "pos": 3,
+          "res": "PLACE",
+          "stake": 1.45,
+          "bet_profit": 0.07,
+          "bank_after": 147.99
         },
         {
           "rank": 4,
@@ -2339,7 +2354,7 @@
           "cjkc": null,
           "total": 89.3,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 5,
@@ -2361,8 +2376,8 @@
           "trnc": null,
           "cjkc": 37.0,
           "total": 86.28999999999999,
-          "pos": 0,
-          "res": null
+          "pos": 6,
+          "res": "LOSE"
         },
         {
           "rank": 6,
@@ -2384,8 +2399,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 77.89,
-          "pos": 0,
-          "res": null
+          "pos": 2,
+          "res": "PLACE"
         },
         {
           "rank": 7,
@@ -2407,8 +2422,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 68.5,
-          "pos": 0,
-          "res": null
+          "pos": 5,
+          "res": "LOSE"
         },
         {
           "rank": 8,
@@ -2453,8 +2468,8 @@
           "trnc": null,
           "cjkc": null,
           "total": 22.0,
-          "pos": 0,
-          "res": null
+          "pos": 4,
+          "res": "LOSE"
         }
       ]
     },
@@ -3452,7 +3467,7 @@
       "class": "4",
       "distance": "2m 7f 185y",
       "going": "Good-good to firm in places",
-      "settled": false,
+      "settled": true,
       "runners": [
         {
           "rank": 1,
@@ -3613,7 +3628,7 @@
           "cjkc": null,
           "total": 60.4,
           "pos": 0,
-          "res": null
+          "res": "NR"
         },
         {
           "rank": 8,
@@ -8557,6 +8572,6 @@
   ],
   "bank": {
     "start": 157.77,
-    "end": 149.49
+    "end": 147.99
   }
 }
