@@ -282,6 +282,7 @@ def fetch_racecard(dstr: str, race: dict, refresh: bool) -> dict:
     return {
         **race,
         "placed": card.get("number_of_placed_rides"),
+        "stage": (card.get("race_summary") or {}).get("race_stage") or "",
         "runs": rides,
     }
 
@@ -1165,9 +1166,10 @@ def push_app_data() -> None:
 def settle_only(dstr: str, push: bool = True) -> None:
     """Late-day mode: the morning publish is the sheet of record — stats are
     NEVER re-scored. This patches stored results only (res/pos off the fresh
-    results card), marks any pick gone from the card NR, re-stamps the bank
-    chain off the stored days, and pushes. A race not yet off stays exactly
-    as stored — it settles whenever SL posts it, or not at all."""
+    results card), marks genuine non-runners and void/abandoned races NR,
+    settles any runner who failed to finish as LOSE, re-stamps the bank chain
+    off the stored days, and pushes. A race not yet off stays exactly as
+    stored — it settles whenever SL posts it, or not at all."""
     data_dir = APP_DIR / "data"
     day_path = data_dir / f"{dstr}.json"
     if not day_path.exists():
@@ -1180,7 +1182,7 @@ def settle_only(dstr: str, push: bool = True) -> None:
     except RuntimeError as exc:
         print(f"settle {dstr}: {exc} — stored day left untouched")
         return
-    fresh: dict[str, tuple[dict, int | None]] = {}
+    fresh: dict[str, tuple[dict, int | None, bool, str]] = {}
     for race in index:
         try:
             card = fetch_racecard(dstr, race, True)
@@ -1189,17 +1191,22 @@ def settle_only(dstr: str, push: bool = True) -> None:
         by_horse = {norm(rd["horse"]): rd for rd in card["runs"]}
         finished = any(isinstance(rd.get("pos"), int) and rd["pos"] >= 1
                        for rd in card["runs"])
+        stage = (card.get("stage") or "").upper()
         fresh[f"{norm(card['meeting'])}|{card['time']}"] = (
-            by_horse, card.get("placed"), finished)
+            by_horse, card.get("placed"), finished, stage)
 
-    def res_for(rd: dict, placed: int | None, finished: bool) -> str | None:
+    def res_for(rd: dict, placed: int | None, finished: bool,
+                stage: str) -> str | None:
         if rd["status"] != "RUNNER":
             return "NR"
+        if "VOID" in stage or "ABANDON" in stage:
+            return "NR"                  # void/abandoned race — stakes returned
         pos = rd.get("pos")
         if pos in (None, 0):
-            # result posted but this runner has no position → SL has no
-            # result for it at all: void leg, stake returned
-            return "NR" if finished else None
+            # No finishing position on a finished race means the horse ran
+            # but did not finish — pulled up, fell, unseated, refused, etc.
+            # That is a losing bet, not a non-runner.
+            return "LOSE" if finished else None
         p = int(pos)
         n = placed if placed else 3
         return "WIN" if p == 1 else ("PLACE" if p <= n else "LOSE")
@@ -1209,7 +1216,7 @@ def settle_only(dstr: str, push: bool = True) -> None:
         hit = fresh.get(f"{norm(rc['meeting'])}|{rc['time']}")
         if not hit:
             continue
-        by_horse, placed, finished = hit
+        by_horse, placed, finished, stage = hit
         for rr in rc.get("runners") or []:
             if rr.get("res") in ("WIN", "PLACE", "LOSE"):
                 continue                    # settled rows are frozen
@@ -1217,7 +1224,7 @@ def settle_only(dstr: str, push: bool = True) -> None:
             if rd is None:
                 new, newpos = "NR", None    # gone from the card → non-runner
             else:
-                new = res_for(rd, placed, finished)
+                new = res_for(rd, placed, finished, stage)
                 if new is None:
                     continue                # still not off — no change
                 newpos = rd.get("pos")
