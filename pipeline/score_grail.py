@@ -287,6 +287,20 @@ def fetch_racecard(dstr: str, race: dict, refresh: bool) -> dict:
     }
 
 
+FINAL_RACE_STAGES = {"WEIGHEDIN", "RESULT", "FINISHED"}
+
+
+def race_finished(stage: str | None, runs: list[dict]) -> bool:
+    """True only when the card carries a full, official result. A stage that
+    is present but still in-running (OFF, GOINGDOWN, ATTHEPOST, …) is not
+    final even if the first finishers are already posted."""
+    s = (stage or "").upper()
+    if s:
+        return s in FINAL_RACE_STAGES
+    return any(isinstance(rd.get("pos"), int) and rd["pos"] >= 1
+               for rd in runs)
+
+
 # --------------------------------------------------------------------------
 # RaceMetrics — trainer 14-day win %
 # --------------------------------------------------------------------------
@@ -594,6 +608,9 @@ def score_race(race: dict, trn14: dict[str, float], jky30: dict[str, float],
     hot_tr = hot_tr or {}
     hot_jk = hot_jk or {}
     combos = combos or {}
+    stage = (race.get("stage") or "").upper()
+    voided = "VOID" in stage or "ABANDON" in stage
+    finished = race_finished(stage, race["runs"])
     sc = []
     for r in runners:
         live = (r["wins"] is not None and r["runs"] and r["runs"] > 0)
@@ -627,10 +644,12 @@ def score_race(race: dict, trn14: dict[str, float], jky30: dict[str, float],
         # settled?
         pos = r["pos"]
         placed = race["placed"] if race["placed"] else 3
-        if r["status"] != "RUNNER":
+        if r["status"] != "RUNNER" or voided:
             res = "NR"
         elif pos in (None, 0):
-            res = None                    # not off yet
+            # a final result with no finishing position = ran but did not
+            # finish (pulled up, fell, unseated, refused…) → losing bet
+            res = "LOSE" if finished else None
         elif int(pos) == 1:
             res = "WIN"
         elif int(pos) <= int(placed):
@@ -1189,9 +1208,8 @@ def settle_only(dstr: str, push: bool = True) -> None:
         except Exception:
             continue
         by_horse = {norm(rd["horse"]): rd for rd in card["runs"]}
-        finished = any(isinstance(rd.get("pos"), int) and rd["pos"] >= 1
-                       for rd in card["runs"])
         stage = (card.get("stage") or "").upper()
+        finished = race_finished(stage, card["runs"])
         fresh[f"{norm(card['meeting'])}|{card['time']}"] = (
             by_horse, card.get("placed"), finished, stage)
 
