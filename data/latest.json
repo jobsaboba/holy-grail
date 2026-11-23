@@ -1,6 +1,6 @@
 {
   "date": "2026-11-23",
-  "updated": "2026-11-23T05:02:31+0000",
+  "updated": "2026-11-23T10:32:41+0000",
   "races": [
     {
       "time": "12:25",
@@ -59,29 +59,6 @@
         },
         {
           "rank": 3,
-          "horse": "Pantile's Gift",
-          "stars": 3,
-          "odds": "10/1",
-          "jockey": "Harry Reed",
-          "trainer": "Harry Derham",
-          "life": 18,
-          "trn": 30.0,
-          "jky": 10.34,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": 27.0,
-          "cjkc": null,
-          "total": 85.34,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 4,
           "horse": "James Choice",
           "stars": 3,
           "odds": "9/2",
@@ -104,6 +81,29 @@
           "res": null
         },
         {
+          "rank": 4,
+          "horse": "Pantile's Gift",
+          "stars": 3,
+          "odds": "10/1",
+          "jockey": "Harry Reed",
+          "trainer": "Harry Derham",
+          "life": 18,
+          "trn": 25.0,
+          "jky": 10.34,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": 27.0,
+          "cjkc": null,
+          "total": 80.34,
+          "pos": 0,
+          "res": null
+        },
+        {
           "rank": 5,
           "horse": "Temple",
           "stars": 3,
@@ -111,7 +111,7 @@
           "jockey": "J J Burke",
           "trainer": "James Owen",
           "life": 9,
-          "trn": 7.9,
+          "trn": 7.7,
           "jky": 20.59,
           "fav": 6,
           "ht": null,
@@ -122,7 +122,7 @@
           "crs": null,
           "trnc": null,
           "cjkc": null,
-          "total": 43.489999999999995,
+          "total": 43.29,
           "pos": 0,
           "res": null
         },
@@ -249,7 +249,7 @@
       "name": "Boat At Erbistock Handicap Chase (GBB Race)",
       "class": "4",
       "distance": "2m 1f 77y",
-      "going": "Good to soft-soft in places on chase course (prec inspection 8am)",
+      "going": "Good to Soft",
       "settled": false,
       "runners": [
         {
@@ -277,29 +277,6 @@
         },
         {
           "rank": 2,
-          "horse": "Kiwi Rush",
-          "stars": 3,
-          "odds": "7/1",
-          "jockey": "Paul O'Brien",
-          "trainer": "Harry Derham",
-          "life": 20,
-          "trn": 30.0,
-          "jky": 19.23,
-          "fav": 8,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 77.23,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 3,
           "horse": "Kartoon And Co",
           "stars": 4,
           "odds": "6/1",
@@ -318,6 +295,29 @@
           "trnc": null,
           "cjkc": null,
           "total": 72.58,
+          "pos": 0,
+          "res": null
+        },
+        {
+          "rank": 3,
+          "horse": "Kiwi Rush",
+          "stars": 3,
+          "odds": "7/1",
+          "jockey": "Paul O'Brien",
+          "trainer": "Harry Derham",
+          "life": 20,
+          "trn": 25.0,
+          "jky": 19.23,
+          "fav": 8,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 72.23,
           "pos": 0,
           "res": null
         },
@@ -501,7 +501,7 @@
           "jockey": "R T Dunne",
           "trainer": "James Owen",
           "life": 23,
-          "trn": 7.9,
+          "trn": 7.7,
           "jky": 2.86,
           "fav": 6,
           "ht": null,
@@ -512,7 +512,7 @@
           "crs": null,
           "trnc": 27.0,
           "cjkc": null,
-          "total": 66.76,
+          "total": 66.56,
           "pos": 0,
           "res": null
         },
@@ -639,7 +639,7 @@
       "name": "Bangor-On-Dee Memberships Now On Sale Novices' Handicap Chase (GBB Race)",
       "class": "4",
       "distance": "2m 4f 72y",
-      "going": "Good to soft-soft in places on chase course (prec inspection 8am)",
+      "going": "Good to Soft",
       "settled": false,
       "runners": [
         {
@@ -690,29 +690,6 @@
         },
         {
           "rank": 3,
-          "horse": "The Burren Man",
-          "stars": 2,
-          "odds": "25/1",
-          "jockey": "Paul O'Brien",
-          "trainer": "Harry Derham",
-          "life": 10,
-          "trn": 30.0,
-          "jky": 19.23,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 59.230000000000004,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 4,
           "horse": "French Emperor",
           "stars": 3,
           "odds": "6/1",
@@ -731,6 +708,29 @@
           "trnc": null,
           "cjkc": null,
           "total": 56.06,
+          "pos": 0,
+          "res": null
+        },
+        {
+          "rank": 4,
+          "horse": "The Burren Man",
+          "stars": 2,
+          "odds": "25/1",
+          "jockey": "Paul O'Brien",
+          "trainer": "Harry Derham",
+          "life": 10,
+          "trn": 25.0,
+          "jky": 19.23,
+          "fav": null,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": null,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 54.230000000000004,
           "pos": 0,
           "res": null
         },
@@ -1092,29 +1092,6 @@
         },
         {
           "rank": 9,
-          "horse": "Master Dunraven",
-          "stars": 3,
-          "odds": "16/1",
-          "jockey": "C O'Farrell",
-          "trainer": "N P Mulholland",
-          "life": 31,
-          "trn": null,
-          "jky": null,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 31,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 10,
           "horse": "Amalfina",
           "stars": 2,
           "odds": "33/1",
@@ -1137,7 +1114,7 @@
           "res": null
         },
         {
-          "rank": 11,
+          "rank": 10,
           "horse": "Callero",
           "stars": 2,
           "odds": "33/1",
@@ -1160,7 +1137,7 @@
           "res": null
         },
         {
-          "rank": 12,
+          "rank": 11,
           "horse": "Papa Oscar",
           "stars": 2,
           "odds": "25/1",
@@ -1190,7 +1167,7 @@
       "name": "Wrexham Lager Novices' Handicap Chase (GBB Race)",
       "class": "4",
       "distance": "3m 30y",
-      "going": "Good to soft-soft in places on chase course (prec inspection 8am)",
+      "going": "Good to Soft",
       "settled": false,
       "runners": [
         {
@@ -1218,29 +1195,6 @@
         },
         {
           "rank": 2,
-          "horse": "Crystello",
-          "stars": 4,
-          "odds": "7/1",
-          "jockey": "Paul O'Brien",
-          "trainer": "Harry Derham",
-          "life": 13,
-          "trn": 30.0,
-          "jky": 19.23,
-          "fav": 6,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": 5,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 73.23,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 3,
           "horse": "Top Guy",
           "stars": 3,
           "odds": "25/1",
@@ -1259,6 +1213,29 @@
           "trnc": null,
           "cjkc": null,
           "total": 72.58,
+          "pos": 0,
+          "res": null
+        },
+        {
+          "rank": 3,
+          "horse": "Crystello",
+          "stars": 4,
+          "odds": "7/1",
+          "jockey": "Paul O'Brien",
+          "trainer": "Harry Derham",
+          "life": 13,
+          "trn": 25.0,
+          "jky": 19.23,
+          "fav": 6,
+          "ht": null,
+          "hj": null,
+          "tjc": null,
+          "cd": null,
+          "dist": 5,
+          "crs": null,
+          "trnc": null,
+          "cjkc": null,
+          "total": 68.23,
           "pos": 0,
           "res": null
         },
@@ -1477,7 +1454,7 @@
       "name": "Outerspace Group 'National Hunt' Maiden Hurdle (GBB Race)",
       "class": "4",
       "distance": "2m 3f 123y",
-      "going": "Good to soft-soft in places on chase course (prec inspection 8am)",
+      "going": "Good to Soft (Good in places)",
       "settled": false,
       "runners": [
         {
@@ -1810,7 +1787,7 @@
       "name": "Mount Vines Mares' Maiden Hurdle (GBB Race)",
       "class": "4",
       "distance": "2m 145y",
-      "going": "Good to soft-soft in places on chase course (prec inspection 8am)",
+      "going": "Good to Soft (Good in places)",
       "settled": false,
       "runners": [
         {
@@ -1890,7 +1867,7 @@
           "jockey": "Paul O'Brien",
           "trainer": "Harry Derham",
           "life": 0,
-          "trn": 30.0,
+          "trn": 25.0,
           "jky": 19.23,
           "fav": 11,
           "ht": null,
@@ -1901,7 +1878,7 @@
           "crs": null,
           "trnc": null,
           "cjkc": null,
-          "total": 60.230000000000004,
+          "total": 55.230000000000004,
           "pos": 0,
           "res": null
         },
@@ -2068,29 +2045,6 @@
         },
         {
           "rank": 12,
-          "horse": "Yawl",
-          "stars": 2,
-          "odds": "20/1",
-          "jockey": "Benjamin Poste",
-          "trainer": "T Symonds",
-          "life": null,
-          "trn": null,
-          "jky": null,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 0,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 13,
           "horse": "Mysteriosa",
           "stars": 2,
           "odds": "66/1",
@@ -2113,7 +2067,7 @@
           "res": null
         },
         {
-          "rank": 14,
+          "rank": 13,
           "horse": "Gaelic Heather",
           "stars": 2,
           "odds": "100/1",
@@ -2154,7 +2108,7 @@
           "jockey": "Callum Pritchard",
           "trainer": "James Owen",
           "life": 18,
-          "trn": 7.9,
+          "trn": 7.7,
           "jky": 11.63,
           "fav": null,
           "ht": null,
@@ -2165,7 +2119,7 @@
           "crs": null,
           "trnc": 27.0,
           "cjkc": 26.0,
-          "total": 90.53,
+          "total": 90.33,
           "pos": 0,
           "res": null
         },
@@ -2177,7 +2131,7 @@
           "jockey": "Isabelle Ryder",
           "trainer": "Jamie Snowden",
           "life": 3,
-          "trn": 22.7,
+          "trn": 24.0,
           "jky": 8.0,
           "fav": 6,
           "ht": null,
@@ -2188,7 +2142,7 @@
           "crs": null,
           "trnc": 37.0,
           "cjkc": null,
-          "total": 76.7,
+          "total": 78.0,
           "pos": 0,
           "res": null
         },
@@ -2309,29 +2263,6 @@
         },
         {
           "rank": 8,
-          "horse": "Mistress Fox",
-          "stars": 3,
-          "odds": "8/1",
-          "jockey": "Bradley Harris",
-          "trainer": "N P Mulholland",
-          "life": 5,
-          "trn": null,
-          "jky": 10.0,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 15.0,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 9,
           "horse": "Lady Showtime",
           "stars": 1,
           "odds": "66/1",
@@ -2412,29 +2343,6 @@
         },
         {
           "rank": 3,
-          "horse": "Moab",
-          "stars": 4,
-          "odds": "10/3",
-          "jockey": "Jonjo O'Neill Jr.",
-          "trainer": "Miss H C Knight",
-          "life": 46,
-          "trn": null,
-          "jky": 22.92,
-          "fav": 17,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": 21.0,
-          "total": 106.92,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 4,
           "horse": "Beau Quali",
           "stars": 4,
           "odds": "33/1",
@@ -2457,7 +2365,7 @@
           "res": null
         },
         {
-          "rank": 5,
+          "rank": 4,
           "horse": "Lyrical Choice",
           "stars": 5,
           "odds": "6/1",
@@ -2480,7 +2388,7 @@
           "res": null
         },
         {
-          "rank": 6,
+          "rank": 5,
           "horse": "Emerald Breeze",
           "stars": 3,
           "odds": "11/4",
@@ -2503,7 +2411,7 @@
           "res": null
         },
         {
-          "rank": 7,
+          "rank": 6,
           "horse": "Kentucky River",
           "stars": 3,
           "odds": "16/1",
@@ -2526,7 +2434,7 @@
           "res": null
         },
         {
-          "rank": 8,
+          "rank": 7,
           "horse": "Vivid Pink",
           "stars": 3,
           "odds": "10/1",
@@ -2549,7 +2457,7 @@
           "res": null
         },
         {
-          "rank": 9,
+          "rank": 8,
           "horse": "Devon Skies",
           "stars": 2,
           "odds": "20/1",
@@ -2572,7 +2480,7 @@
           "res": null
         },
         {
-          "rank": 10,
+          "rank": 9,
           "horse": "Lewisham Grove",
           "stars": 3,
           "odds": "6/1",
@@ -2595,7 +2503,7 @@
           "res": null
         },
         {
-          "rank": 11,
+          "rank": 10,
           "horse": "Fidendum",
           "stars": 3,
           "odds": "10/1",
@@ -2791,75 +2699,6 @@
         },
         {
           "rank": 8,
-          "horse": "Royal Blaze",
-          "stars": 2,
-          "odds": "25/1",
-          "jockey": "Alex Jary",
-          "trainer": "Ewan Whillans",
-          "life": 70,
-          "trn": null,
-          "jky": 6.25,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": 10,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 86.25,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 9,
-          "horse": "West Tyrone",
-          "stars": 3,
-          "odds": "8/1",
-          "jockey": "Jake Dickson",
-          "trainer": "Lizzie Quinlan",
-          "life": 48,
-          "trn": null,
-          "jky": 0.0,
-          "fav": 8,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": 5,
-          "crs": 3,
-          "trnc": null,
-          "cjkc": null,
-          "total": 64.0,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 10,
-          "horse": "Jodhpur Blue",
-          "stars": 5,
-          "odds": "12/1",
-          "jockey": "C J Whiteley",
-          "trainer": "Ian Williams",
-          "life": 51,
-          "trn": null,
-          "jky": 5.56,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": null,
-          "crs": 3,
-          "trnc": null,
-          "cjkc": null,
-          "total": 59.56,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 11,
           "horse": "Uncle Liam",
           "stars": 3,
           "odds": "10/1",
@@ -2882,7 +2721,7 @@
           "res": null
         },
         {
-          "rank": 12,
+          "rank": 9,
           "horse": "Rory's Gold",
           "stars": 3,
           "odds": "16/1",
@@ -2905,7 +2744,7 @@
           "res": null
         },
         {
-          "rank": 13,
+          "rank": 10,
           "horse": "Lone Piper",
           "stars": 3,
           "odds": "25/1",
@@ -2928,7 +2767,7 @@
           "res": null
         },
         {
-          "rank": 14,
+          "rank": 11,
           "horse": "Tommo's Ginjaninja",
           "stars": 2,
           "odds": "16/1",
@@ -2969,7 +2808,7 @@
           "jockey": "Toby McCain-Mitchell",
           "trainer": "James Owen",
           "life": 97,
-          "trn": 7.9,
+          "trn": 7.7,
           "jky": 8.0,
           "fav": 8,
           "ht": null,
@@ -2980,7 +2819,7 @@
           "crs": null,
           "trnc": null,
           "cjkc": 50.0,
-          "total": 175.9,
+          "total": 175.7,
           "pos": 0,
           "res": null
         },
@@ -3015,7 +2854,7 @@
           "jockey": "Calum Hogan",
           "trainer": "Harry Derham",
           "life": 49,
-          "trn": 30.0,
+          "trn": 25.0,
           "jky": 0.0,
           "fav": 17,
           "ht": null,
@@ -3026,7 +2865,7 @@
           "crs": null,
           "trnc": 27.0,
           "cjkc": null,
-          "total": 128.0,
+          "total": 123.0,
           "pos": 0,
           "res": null
         },
@@ -3451,7 +3290,7 @@
           "jockey": "L Morris",
           "trainer": "James Owen",
           "life": 77,
-          "trn": 7.9,
+          "trn": 7.7,
           "jky": 10.34,
           "fav": 33,
           "ht": null,
@@ -3462,7 +3301,7 @@
           "crs": null,
           "trnc": null,
           "cjkc": null,
-          "total": 160.24,
+          "total": 160.04000000000002,
           "pos": 0,
           "res": null
         },
@@ -4576,7 +4415,7 @@
           "jockey": "K Shoemark",
           "trainer": "James Owen",
           "life": 24,
-          "trn": 7.9,
+          "trn": 7.7,
           "jky": 15.0,
           "fav": 33,
           "ht": null,
@@ -4587,7 +4426,7 @@
           "crs": 3,
           "trnc": null,
           "cjkc": null,
-          "total": 87.9,
+          "total": 87.7,
           "pos": 0,
           "res": null
         },
@@ -4662,29 +4501,6 @@
         },
         {
           "rank": 8,
-          "horse": "Black Cab",
-          "stars": 2,
-          "odds": "10/1",
-          "jockey": "Jack Callan",
-          "trainer": "Mrs A C Hamilton",
-          "life": 28,
-          "trn": null,
-          "jky": 12.82,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": 10,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 50.82,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 9,
           "horse": "Kiss Don't Tell",
           "stars": 2,
           "odds": "16/1",
@@ -4707,7 +4523,7 @@
           "res": null
         },
         {
-          "rank": 10,
+          "rank": 9,
           "horse": "Bessie Wallis",
           "stars": 2,
           "odds": "12/1",
@@ -4730,7 +4546,7 @@
           "res": null
         },
         {
-          "rank": 11,
+          "rank": 10,
           "horse": "Bold Return",
           "stars": 2,
           "odds": "33/1",
@@ -5959,29 +5775,6 @@
         },
         {
           "rank": 4,
-          "horse": "Miss Rainbow",
-          "stars": 3,
-          "odds": "8/1",
-          "jockey": "D Nolan",
-          "trainer": "Miss Tracy Waggott",
-          "life": 110,
-          "trn": null,
-          "jky": 0.0,
-          "fav": 8,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": null,
-          "dist": 5,
-          "crs": 3,
-          "trnc": null,
-          "cjkc": null,
-          "total": 126.0,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 5,
           "horse": "Too Much",
           "stars": 3,
           "odds": "10/1",
@@ -6004,7 +5797,7 @@
           "res": null
         },
         {
-          "rank": 6,
+          "rank": 5,
           "horse": "Cast No Shadow",
           "stars": 2,
           "odds": "25/1",
@@ -6027,7 +5820,7 @@
           "res": null
         },
         {
-          "rank": 7,
+          "rank": 6,
           "horse": "Simba's Pride",
           "stars": 4,
           "odds": "7/2",
@@ -6050,7 +5843,7 @@
           "res": null
         },
         {
-          "rank": 8,
+          "rank": 7,
           "horse": "Hi Lord",
           "stars": 3,
           "odds": "4/1",
@@ -6073,7 +5866,7 @@
           "res": null
         },
         {
-          "rank": 9,
+          "rank": 8,
           "horse": "The Tunguska Event",
           "stars": 3,
           "odds": "16/1",
@@ -6096,7 +5889,7 @@
           "res": null
         },
         {
-          "rank": 10,
+          "rank": 9,
           "horse": "Contorno",
           "stars": 2,
           "odds": "20/1",
@@ -6119,7 +5912,7 @@
           "res": null
         },
         {
-          "rank": 11,
+          "rank": 10,
           "horse": "Sunday River",
           "stars": 4,
           "odds": "14/1",
@@ -6142,7 +5935,7 @@
           "res": null
         },
         {
-          "rank": 12,
+          "rank": 11,
           "horse": "Justmyluck",
           "stars": 3,
           "odds": "10/1",
@@ -6165,7 +5958,7 @@
           "res": null
         },
         {
-          "rank": 13,
+          "rank": 12,
           "horse": "Believeinmenow",
           "stars": 4,
           "odds": "12/1",
@@ -6188,7 +5981,7 @@
           "res": null
         },
         {
-          "rank": 14,
+          "rank": 13,
           "horse": "Fordham Flyer",
           "stars": 2,
           "odds": "25/1",
@@ -6223,29 +6016,6 @@
       "runners": [
         {
           "rank": 1,
-          "horse": "Bomb Squad",
-          "stars": 2,
-          "odds": "14/1",
-          "jockey": "Marco Ghiani",
-          "trainer": "J Mackie",
-          "life": 237,
-          "trn": null,
-          "jky": 15.25,
-          "fav": null,
-          "ht": null,
-          "hj": null,
-          "tjc": null,
-          "cd": 10,
-          "dist": null,
-          "crs": null,
-          "trnc": null,
-          "cjkc": null,
-          "total": 262.25,
-          "pos": 0,
-          "res": null
-        },
-        {
-          "rank": 2,
           "horse": "Beauzon",
           "stars": 1,
           "odds": "20/1",
@@ -6268,7 +6038,7 @@
           "res": null
         },
         {
-          "rank": 3,
+          "rank": 2,
           "horse": "Lhebayeb",
           "stars": 3,
           "odds": "12/1",
@@ -6291,7 +6061,7 @@
           "res": null
         },
         {
-          "rank": 4,
+          "rank": 3,
           "horse": "Monsieur Patat",
           "stars": 4,
           "odds": "5/1",
@@ -6314,7 +6084,7 @@
           "res": null
         },
         {
-          "rank": 5,
+          "rank": 4,
           "horse": "Profit Street",
           "stars": 2,
           "odds": "12/1",
@@ -6337,7 +6107,7 @@
           "res": null
         },
         {
-          "rank": 6,
+          "rank": 5,
           "horse": "Yehudi",
           "stars": 3,
           "odds": "6/1",
@@ -6360,7 +6130,7 @@
           "res": null
         },
         {
-          "rank": 7,
+          "rank": 6,
           "horse": "Romanovich",
           "stars": 1,
           "odds": "16/1",
@@ -6383,7 +6153,7 @@
           "res": null
         },
         {
-          "rank": 8,
+          "rank": 7,
           "horse": "Jamie Sommers",
           "stars": 5,
           "odds": "9/2",
@@ -6406,7 +6176,7 @@
           "res": null
         },
         {
-          "rank": 9,
+          "rank": 8,
           "horse": "Good Karma",
           "stars": 3,
           "odds": "12/1",
@@ -6429,7 +6199,7 @@
           "res": null
         },
         {
-          "rank": 10,
+          "rank": 9,
           "horse": "Girls Allowed",
           "stars": 4,
           "odds": "4/1",
@@ -6452,7 +6222,7 @@
           "res": null
         },
         {
-          "rank": 11,
+          "rank": 10,
           "horse": "Chapman's Peak",
           "stars": 4,
           "odds": "10/1",
@@ -6475,7 +6245,7 @@
           "res": null
         },
         {
-          "rank": 12,
+          "rank": 11,
           "horse": "Mr Tony",
           "stars": 1,
           "odds": "16/1",
@@ -7228,7 +6998,7 @@
           "jockey": "Jason Watson",
           "trainer": "James Owen",
           "life": 8,
-          "trn": 7.9,
+          "trn": 7.7,
           "jky": 6.9,
           "fav": 17,
           "ht": null,
@@ -7239,7 +7009,7 @@
           "crs": null,
           "trnc": null,
           "cjkc": null,
-          "total": 39.8,
+          "total": 39.6,
           "pos": 0,
           "res": null
         },
